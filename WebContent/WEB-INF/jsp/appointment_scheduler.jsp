@@ -36,7 +36,7 @@
                   <form ng-submit="ctrl.submit()" name="mySynchronousForm" class="form-horizontal">
                       <input type="hidden" ng-model="ctrl.user.id" />
                       <div class="row">
-                          <label class="col-md-2 control-lable" for="uname">Synchronous Submission</label>
+                          <label class="col-md-2 control-lable" for="sync_submit">Synchronous Submission</label>
                       </div>
                       
                       <div class="row">
@@ -86,7 +86,7 @@
  
                       <div class="row">
                           <div class="form-actions floatRight">
-                              <input type="submit"  value="Add" class="btn btn-primary btn-sm" ng-disabled="mySynchronousForm.$invalid">
+                              <input type="submit" ng-click="/appointment_confirmation.html" value="Add" class="btn btn-primary btn-sm" ng-disabled="mySynchronousForm.$invalid">
                               <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="mySynchronousForm.$pristine">Reset Form</button>
                           </div>
                       </div>
@@ -97,7 +97,7 @@
                   <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
                       <input type="hidden" ng-model="ctrl.user.id" />
                       <div class="row">
-                          <label class="col-md-2 control-lable" for="uname">Asynchronous Submission</label>
+                          <label class="col-md-2 control-lable" for="async_submit">Asynchronous Submission</label>
                       </div>
 
                       <div class="row">

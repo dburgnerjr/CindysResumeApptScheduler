@@ -17,6 +17,8 @@
 		<url-pattern>/static/css/app.css</url-pattern>
 		<url-pattern>/index.jsp</url-pattern>
 		<url-pattern>/appointment_scheduler.html</url-pattern>
+		<url-pattern>/appointment_confirmation.jsp</url-pattern>
+		<url-pattern>/appointment_confirmation.html</url-pattern>
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 

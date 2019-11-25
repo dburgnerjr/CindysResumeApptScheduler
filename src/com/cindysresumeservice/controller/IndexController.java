@@ -17,4 +17,9 @@ public class IndexController {
 		return "appointment_scheduler";
 	}
 
+	@RequestMapping(value = "/appointment_confirmation", method = RequestMethod.GET)
+	public String getAppointmentConfirmation() {
+		return "appointment_confirmation";
+	}
+
 }
