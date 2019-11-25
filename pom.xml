@@ -10,7 +10,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>5.2.1.RELEASE</springframework.version>
-		<jackson.version>2.9.4</jackson.version>
+		<jackson.version>2.9.10.1</jackson.version>
 	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
