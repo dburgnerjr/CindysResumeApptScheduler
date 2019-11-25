@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IndexController {
 
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String getIndexPage() {
-//		return "IndexPage";
-//	}
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String getIndexPage() {
+		return "IndexPage";
+	}
 
 	@RequestMapping(value = "/appointment_scheduler", method = RequestMethod.GET)
 	public String getAppointmentScheduler() {
