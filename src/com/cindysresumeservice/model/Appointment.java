@@ -1,11 +1,11 @@
 package com.cindysresumeservice.model;
 
 
-public class User {
+public class Appointment {
 	 
-    private long id;
+    private Long id;
      
-    private String username;
+    private String name;
      
     private String date;
 
@@ -15,34 +15,34 @@ public class User {
 
     private String comments;
      
-    public User(){
-        id=0;
+    public Appointment() {
+        id = (long) 0;
         comments = "";
     }
      
-    public User(long id, String username, String date, String time, String email, String comments) {
+    public Appointment(Long id, String name, String date, String time, String email, String comments) {
         this.id = id;
-        this.username = username;
+        this.name = name;
         this.date = date;
         this.time = time;
         this.email = email;
         this.comments = comments;
     }
  
-    public long getId() {
+    public Long getId() {
         return id;
     }
  
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
  
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
  
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
  
     public String getDate() {
@@ -83,9 +83,9 @@ public class User {
             return true;
         if (obj == null)
             return false;
-        if (!(obj instanceof User))
+        if (!(obj instanceof Appointment))
             return false;
-        User other = (User) obj;
+        Appointment other = (Appointment) obj;
         if (id != other.id)
             return false;
         return true;
@@ -93,7 +93,7 @@ public class User {
  
     @Override
     public String toString() {
-        return "User [id=" + id + ", username=" + username + ", date=" + date
+        return "Appointment [id=" + id + ", name=" + name + ", date=" + date
                 + ", time=" + time + ", email=" + email + ", comments=" + comments + "]";
     }
      

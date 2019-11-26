@@ -2,24 +2,24 @@ package com.cindysresumeservice.service;
 
 import java.util.List;
 
-import com.cindysresumeservice.model.User;
+import com.cindysresumeservice.model.Appointment;
  
 public interface ResumeService {
      
-    User findById(long id);
+    Appointment findById(Long id);
      
-    User findByName(String name);
+    Appointment findByName(String name);
      
-    void saveUser(User user);
+    void saveAppt(Appointment appt);
      
-    void updateUser(User user);
+    void updateAppt(Appointment appt);
      
-    void deleteUserById(long id);
+    void deleteApptById(Long id);
  
-    List<User> findAllUsers(); 
+    List<Appointment> findAllAppts(); 
      
-    void deleteAllUsers();
+    void deleteAllAppts();
      
-    public boolean isUserExist(User user);
+    public boolean isApptExist(Appointment appt);
      
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.cindysresumeservice.model.User;
+import com.cindysresumeservice.model.Appointment;
 import com.cindysresumeservice.service.ResumeService;
 
 /*
@@ -28,106 +28,106 @@ public class CindyResumeController {
     @Autowired
     ResumeService resumeService;  //Service which will do all data retrieval/manipulation work
  
-    //-------------------Retrieve All Users--------------------------------------------------------
+    //-------------------Retrieve All Appointments--------------------------------------------------------
 /*    
     @RequestMapping(value = "/appointment_scheduler", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<User>> listAllUsers() {
-        List<User> users = resumeService.findAllUsers();
-        if (users.isEmpty()) {
-            return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);	//You many decide to return HttpStatus.NOT_FOUND
+    public ResponseEntity<List<Appointment>> listAllAppointments() {
+        List<Appointment> Appointments = resumeService.findAllAppointments();
+        if (Appointments.isEmpty()) {
+            return new ResponseEntity<List<Appointment>>(HttpStatus.NO_CONTENT);	//You many decide to return HttpStatus.NOT_FOUND
         }
-        System.out.println("user size is: " + users.size());
-        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+        System.out.println("Appointment size is: " + Appointments.size());
+        return new ResponseEntity<List<Appointment>>(Appointments, HttpStatus.OK);
     }
   
  
      
-    //-------------------Retrieve Single User--------------------------------------------------------
+    //-------------------Retrieve Single Appointment--------------------------------------------------------
       
     @RequestMapping(value = "/appointment_scheduler/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<User> getUser(@PathVariable("id") long id) {
-        System.out.println("Fetching User with id " + id);
-        User user = resumeService.findById(id);
-        if (user == null) {
-            System.out.println("User with id " + id + " not found");
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Appointment> getAppointment(@PathVariable("id") long id) {
+        System.out.println("Fetching Appointment with id " + id);
+        Appointment Appointment = resumeService.findById(id);
+        if (Appointment == null) {
+            System.out.println("Appointment with id " + id + " not found");
+            return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<User>(user, HttpStatus.OK);
+        return new ResponseEntity<Appointment>(Appointment, HttpStatus.OK);
     }
   
       
       
-    //-------------------Create a User--------------------------------------------------------
+    //-------------------Create a Appointment--------------------------------------------------------
       
     @RequestMapping(value = "/appointment_scheduler/", method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@RequestBody User user,    UriComponentsBuilder ucBuilder) {
-        System.out.println("Creating User " + user.getUsername());
+    public ResponseEntity<Void> createAppointment(@RequestBody Appointment Appointment,    UriComponentsBuilder ucBuilder) {
+        System.out.println("Creating Appointment " + Appointment.getName());
   
-        if (resumeService.isUserExist(user)) {
-            System.out.println("A User with name " + user.getUsername() + " already exist");
+        if (resumeService.isAppointmentExist(Appointment)) {
+            System.out.println("A Appointment with name " + Appointment.getName() + " already exist");
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
   
-        resumeService.saveUser(user);
+        resumeService.saveAppointment(Appointment);
   
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/appointment_scheduler/{id}").buildAndExpand(user.getId()).toUri());
+        headers.setLocation(ucBuilder.path("/appointment_scheduler/{id}").buildAndExpand(Appointment.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
   
      
       
-    //------------------- Update a User --------------------------------------------------------
+    //------------------- Update a Appointment --------------------------------------------------------
       
     @RequestMapping(value = "/appointment_scheduler/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<User> updateUser(@PathVariable("id") long id, @RequestBody User user) {
-        System.out.println("Updating User " + id);
+    public ResponseEntity<Appointment> updateAppointment(@PathVariable("id") long id, @RequestBody Appointment Appointment) {
+        System.out.println("Updating Appointment " + id);
           
-        User currentUser = resumeService.findById(id);
+        Appointment currentAppointment = resumeService.findById(id);
           
-        if (currentUser == null) {
-            System.out.println("User with id " + id + " not found");
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        if (currentAppointment == null) {
+            System.out.println("Appointment with id " + id + " not found");
+            return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
         }
   
-        currentUser.setUsername(user.getUsername());
-        currentUser.setDate(user.getDate());
-        currentUser.setTime(user.getTime());
-        currentUser.setEmail(user.getEmail());
-        currentUser.setComments(user.getComments());
+        currentAppointment.setName(Appointment.getName());
+        currentAppointment.setDate(Appointment.getDate());
+        currentAppointment.setTime(Appointment.getTime());
+        currentAppointment.setEmail(Appointment.getEmail());
+        currentAppointment.setComments(Appointment.getComments());
          
-        resumeService.updateUser(currentUser);
-        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+        resumeService.updateAppointment(currentAppointment);
+        return new ResponseEntity<Appointment>(currentAppointment, HttpStatus.OK);
     }
   
      
      
-    //------------------- Delete a User --------------------------------------------------------
+    //------------------- Delete a Appointment --------------------------------------------------------
       
     @RequestMapping(value = "/appointment_scheduler/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<User> deleteUser(@PathVariable("id") long id) {
-        System.out.println("Fetching & Deleting User with id " + id);
+    public ResponseEntity<Appointment> deleteAppointment(@PathVariable("id") long id) {
+        System.out.println("Fetching & Deleting Appointment with id " + id);
   
-        User user = resumeService.findById(id);
-        if (user == null) {
-            System.out.println("Unable to delete. User with id " + id + " not found");
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        Appointment Appointment = resumeService.findById(id);
+        if (Appointment == null) {
+            System.out.println("Unable to delete. Appointment with id " + id + " not found");
+            return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
         }
   
-        resumeService.deleteUserById(id);
-        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+        resumeService.deleteAppointmentById(id);
+        return new ResponseEntity<Appointment>(HttpStatus.NO_CONTENT);
     }
   
       
      
-    //------------------- Delete All Users --------------------------------------------------------
+    //------------------- Delete All Appointments --------------------------------------------------------
       
     @RequestMapping(value = "/appointment_scheduler/", method = RequestMethod.DELETE)
-    public ResponseEntity<User> deleteAllUsers() {
-        System.out.println("Deleting All Users");
+    public ResponseEntity<Appointment> deleteAllAppointments() {
+        System.out.println("Deleting All Appointments");
   
-        resumeService.deleteAllUsers();
-        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+        resumeService.deleteAllAppointments();
+        return new ResponseEntity<Appointment>(HttpStatus.NO_CONTENT);
     }
 */
 }

@@ -5,8 +5,8 @@
  
 angular.module('myApp').controller('ResumeController', ['$scope', 'ResumeService', function($scope, ResumeService) {
     var self = this;
-    self.user={id:null,username:'',date:'',time:'',email:'',comments:''};
-    self.users=[];
+    self.Appointment = { id:null, name:'', date:'', time:'', email:'', comments:''};
+    self.Appointments = [];
  
     self.submit = submit;
     self.edit = edit;
@@ -14,66 +14,66 @@ angular.module('myApp').controller('ResumeController', ['$scope', 'ResumeService
     self.reset = reset;
  
  
-    fetchAllUsers();
+    fetchAllAppointments();
  
-    function fetchAllUsers(){
-        ResumeService.fetchAllUsers()
+    function fetchAllAppointments() {
+        ResumeService.fetchAllAppointments()
             .then(
             function(d) {
-                self.users = d;
+                self.Appointments = d;
             },
             function(errResponse){
-                console.error('Error while fetching Users');
+                console.error('Error while fetching Appointments');
             }
         );
     }
  
-    function createUser(user){
-    	ResumeService.createUser(user)
+    function createAppointment(Appointment){
+    	ResumeService.createAppointment(Appointment)
             .then(
-            fetchAllUsers,
+            fetchAllAppointments,
             function(errResponse){
-                console.error('Error while creating User');
+                console.error('Error while creating Appointment');
             }
         );
     }
  
-    function updateUser(user, id){
-    	ResumeService.updateUser(user, id)
+    function updateAppointment(Appointment, id) {
+    	ResumeService.updateAppointment(Appointment, id)
             .then(
-            fetchAllUsers,
-            function(errResponse){
-                console.error('Error while updating User');
+            fetchAllAppointments,
+            function(errResponse) {
+                console.error('Error while updating Appointment');
             }
         );
     }
  
-    function deleteUser(id){
-    	ResumeService.deleteUser(id)
+    function deleteAppointment(id) {
+    	ResumeService.deleteAppointment(id)
             .then(
-            fetchAllUsers,
-            function(errResponse){
-                console.error('Error while deleting User');
+            fetchAllAppointments,
+            function(errResponse) {
+                console.error('Error while deleting Appointment');
             }
         );
     }
  
     function submit() {
-        if(self.user.id===null){
-            console.log('Saving New User', self.user);
-            createUser(self.user);
-        }else{
-            updateUser(self.user, self.user.id);
-            console.log('User updated with id ', self.user.id);
+        if (self.Appointment.id === null) {
+            console.log('Saving New Appointment', self.Appointment);
+            createAppointment(self.Appointment);
+        } else {
+            updateAppointment(self.Appointment, self.Appointment.id);
+            console.log('Appointment updated with id ', self.Appointment.id);
         }
         reset();
     }
  
-    function edit(id){
+    function edit(id) {
         console.log('id to be edited', id);
-        for(var i = 0; i < self.users.length; i++){
-            if(self.users[i].id === id) {
-                self.user = angular.copy(self.users[i]);
+        for (var i = 0; i < self.Appointments.length; ++i) {
+            if (self.Appointments[i].id === id) {
+                self.Appointment = angular.copy(self.Appointments[i]);
                 break;
             }
         }
@@ -81,15 +81,15 @@ angular.module('myApp').controller('ResumeController', ['$scope', 'ResumeService
  
     function remove(id){
         console.log('id to be deleted', id);
-        if(self.user.id === id) {//clean form if the user to be deleted is shown there.
+        if (self.Appointment.id === id) {//clean form if the Appointment to be deleted is shown there.
             reset();
         }
-        deleteUser(id);
+        deleteAppointment(id);
     }
  
  
     function reset(){
-        self.user={id:null,username:'',date:'',time:'',email:'',comments:''};
+        self.Appointment = { id:null, name:'', date:'', time:'', email:'', comments:''};
         $scope.myForm.$setPristine(); //reset Form
     }
  
