@@ -16,10 +16,14 @@ public class Appointment {
     private String comments;
      
     public Appointment() {
-        id = (long) 0;
-        comments = "";
+    	this.id = null;
+        this.name = "";
+        this.date = "";
+        this.time = "";
+        this.email = "";
+    	this.comments = "";
     }
-     
+    
     public Appointment(Long id, String name, String date, String time, String email, String comments) {
         this.id = id;
         this.name = name;

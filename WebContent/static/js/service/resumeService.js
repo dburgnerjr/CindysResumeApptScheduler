@@ -8,7 +8,7 @@ angular.module('myApp').factory('ResumeService', ['$http', '$q', function($http,
     var REST_SERVICE_URI = "http://localhost:8080/CindysResumeApptScheduler/appointment_scheduler";
  
     var factory = {
-        fetchAllAppointments: fetchAllAppointments,
+    	fetchAllAppts: fetchAllAppts,
         createAppointment: createAppointment,
         updateAppointment: updateAppointment,
         deleteAppointment: deleteAppointment
@@ -16,7 +16,7 @@ angular.module('myApp').factory('ResumeService', ['$http', '$q', function($http,
  
     return factory;
  
-    function fetchAllAppointments() {
+    function fetchAllAppts() {
         var deferred = $q.defer();
         $http.get(REST_SERVICE_URI)
             .then(
@@ -31,9 +31,9 @@ angular.module('myApp').factory('ResumeService', ['$http', '$q', function($http,
         return deferred.promise;
     }
  
-    function createAppointment(Appointment) {
+    function createAppointment(appointment) {
         var deferred = $q.defer();
-        $http.post(REST_SERVICE_URI, Appointment)
+        $http.post(REST_SERVICE_URI, appointment)
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -47,9 +47,9 @@ angular.module('myApp').factory('ResumeService', ['$http', '$q', function($http,
     }
  
  
-    function updateAppointment(Appointment, id) {
+    function updateAppointment(appointment, id) {
         var deferred = $q.defer();
-        $http.put(REST_SERVICE_URI + id, Appointment)
+        $http.put(REST_SERVICE_URI + id, appointment)
             .then(
             function (response) {
                 deferred.resolve(response.data);

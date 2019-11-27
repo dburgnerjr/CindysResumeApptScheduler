@@ -1,20 +1,8 @@
 package com.cindysresumeservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.stereotype.Controller;
 
-import com.cindysresumeservice.model.Appointment;
 import com.cindysresumeservice.service.ResumeService;
 
 /*
@@ -22,12 +10,12 @@ import com.cindysresumeservice.service.ResumeService;
  * 
  */
  
-@RestController
+@Controller
 public class CindyResumeController {
-	 
-    @Autowired
-    ResumeService resumeService;  //Service which will do all data retrieval/manipulation work
- 
+//	 
+//    @Autowired
+//    ResumeService resumeService;  //Service which will do all data retrieval/manipulation work
+// 
     //-------------------Retrieve All Appointments--------------------------------------------------------
 /*    
     @RequestMapping(value = "/appointment_scheduler", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

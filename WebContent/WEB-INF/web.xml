@@ -12,14 +12,7 @@
 
 	<servlet-mapping>
 		<servlet-name>cindy-resume</servlet-name>
-		<url-pattern>/appointment_scheduler.jsp</url-pattern>
-		<url-pattern>/images/cindys_resume.jfif</url-pattern>
-		<url-pattern>/static/css/app.css</url-pattern>
-		<url-pattern>/index.jsp</url-pattern>
-		<url-pattern>/appointment_scheduler.html</url-pattern>
-		<url-pattern>/appointment_confirmation.jsp</url-pattern>
-		<url-pattern>/appointment_confirmation.html</url-pattern>
-		<url-pattern>*.html</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 </web-app>
