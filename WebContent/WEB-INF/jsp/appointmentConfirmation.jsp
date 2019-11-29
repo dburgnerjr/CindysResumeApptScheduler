@@ -10,7 +10,7 @@
 	<div class="generic-container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<span class="lead">Submitted Appointment Information </span>
+				<span class="lead">Submitted Appointment Information</span>
 			</div>
 			<div class="formcontainer">
 				<div class="row">
@@ -45,8 +45,8 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable"><a
-							href="appointmentScheduler.html">Back</a></label>
+						<input type="button" onclick="location.href='appointmentScheduler';" class="btn btn-primary btn-sm"value="Back" />
+						<input type="button" onclick="location.href='index';" class="btn btn-primary btn-sm"value="Home" />				
 					</div>
 				</div>
 			</div>

@@ -17,12 +17,14 @@ angular.module('myApp').controller('ResumeController', ['$scope', 'ResumeService
     fetchAllAppts();
  
     function fetchAllAppts() {
+    	console.log("resumeController - fetchAllAppts start");
         ResumeService.fetchAllAppts()
             .then(
             function(d) {
                 self.appointments = d;
+                console.log("sizex = " + self.appointments.size());
             },
-            function(errResponse){
+            function(errResponse) {
                 console.error('Error while fetching Appointments');
             }
         );

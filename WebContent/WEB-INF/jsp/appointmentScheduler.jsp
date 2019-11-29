@@ -30,8 +30,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link href="static/css/app.css" rel="stylesheet" />
 </head>
-<body ng-app="myApp">
-	<div class="generic-container" ng-controller="ResumeController as ctrl">
+<body ng-app="myApp" class="ng-cloak">
+	<div class="generic-container" ng-controller="resumeController as ctrl">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<span class="lead">List of Appointments </span>
@@ -66,7 +66,7 @@
 				</table>
 			</div>
 			<div>
-				<a href="newAppointment">New Appointment</a>
+				<input type="button" onclick="location.href='newAppointment';" class="btn btn-primary btn-sm"value="New Appointment" />
 			</div>
 		</div>
 	</div>

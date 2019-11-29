@@ -3,10 +3,10 @@
  */
 'use strict';
  
-angular.module('myApp').factory('ResumeService', ['$http', '$q', function($http, $q) {
+angular.module('myApp').factory('ResumeService', ['$http', function($http) {
  
-    var REST_SERVICE_URI = "http://localhost:8080/CindysResumeApptScheduler/appointment_scheduler";
- 
+    var REST_SERVICE_URI = "https://localhost:8080/CindysResumeApptScheduler/";
+    
     var factory = {
     	fetchAllAppts: fetchAllAppts,
         createAppointment: createAppointment,
@@ -17,18 +17,16 @@ angular.module('myApp').factory('ResumeService', ['$http', '$q', function($http,
     return factory;
  
     function fetchAllAppts() {
-        var deferred = $q.defer();
-        $http.get(REST_SERVICE_URI)
+    	return $http.get(REST_SERVICE_URI + 'appointments')
             .then(
             function (response) {
-                deferred.resolve(response.data);
+                return response.data;
             },
             function(errResponse) {
                 console.error('Error while fetching Appointments');
-                deferred.reject(errResponse);
+                return errResponse;
             }
         );
-        return deferred.promise;
     }
  
     function createAppointment(appointment) {

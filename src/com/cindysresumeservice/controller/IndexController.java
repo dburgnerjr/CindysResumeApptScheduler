@@ -17,9 +17,9 @@ import com.cindysresumeservice.service.ResumeService;
 
 @Controller
 public class IndexController {
-//	@Autowired
-//	ResumeService resumeService;
-//
+	@Autowired
+	ResumeService resumeService;
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getIndexPage() {
 		return "index";
@@ -38,7 +38,7 @@ public class IndexController {
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
 
-		return new ModelAndView("appointmentScheduler");
+		return new ModelAndView("appointmentScheduler", "appointment", resumeService.findAllAppts());
 		// says SEVERE: Invalid property 'name' of bean class [java.util.ArrayList]: Bean property 'name' 
 		// is not readable or has an invalid getter method: Does the return type of the getter match the parameter type of the setter?
 		// but when the section to add the synchronous submission in appointment_scheduler gets commented out, I see the list 

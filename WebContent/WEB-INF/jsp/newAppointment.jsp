@@ -25,7 +25,7 @@ body {
 						<div class="form-group col-md-12">
 							<form:label class="col-md-2 control-lable" path="name">Name</form:label>
 							<div class="col-md-7">
-								<form:input type="text" path="name" class="name form-control input-sm" /> 
+								<form:input type="text" id="name" name="name" path="name" class="name form-control input-sm" required="required" /> 
 							</div>
 						</div>
 					</div>
@@ -33,7 +33,7 @@ body {
 						<div class="form-group col-md-12">
 							<form:label class="col-md-2 control-lable" path="date">Date</form:label>
 							<div class="col-md-7">
-								<form:input type="date" path="date" class="date form-control input-sm" />
+								<form:input type="date" id="date" name="date" path="date" class="date form-control input-sm" required="required" />
 							</div>
 						</div>
 					</div>
@@ -41,7 +41,7 @@ body {
 						<div class="form-group col-md-12">
 							<form:label class="col-md-2 control-lable" path="time">Time</form:label>
 							<div class="col-md-7">
-								<form:input type="time" path="time" class="time form-control input-sm" />
+								<form:input type="time" id="time" name="time" path="time" class="time form-control input-sm" required="required" />
 							</div>
 						</div>
 					</div>
@@ -49,7 +49,7 @@ body {
 						<div class="form-group col-md-12">
 							<form:label class="col-md-2 control-lable" path="email">Email Address</form:label>
 							<div class="col-md-7">
-								<form:input type="email" path="email" class="email form-control input-sm" />
+								<form:input type="email" id="email" name="email" path="email" class="email form-control input-sm" required="required" />
 							</div>
 						</div>
 					</div>
@@ -57,7 +57,7 @@ body {
 						<div class="form-group col-md-12">
 							<form:label class="col-md-2 control-lable" path="comments">Comments</form:label>
 							<div class="col-md-7">
-								<form:input type="text" path="comments" class="comments form-control input-sm" />
+								<form:input type="text" id="comments" name="comments" path="comments" class="comments form-control input-sm" />
 							</div>
 						</div>
 					</div>
@@ -71,7 +71,7 @@ body {
 		</div>
 	</div>
 	<div>
-		<a href="index">Home</a>
+		<input type="button" onclick="location.href='index';" class="btn btn-primary btn-sm"value="Home" />
 	</div>
 </body>
 </html>

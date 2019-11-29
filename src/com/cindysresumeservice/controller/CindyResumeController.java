@@ -1,9 +1,17 @@
 package com.cindysresumeservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.cindysresumeservice.service.ResumeService;
+import com.cindysresumeservice.model.Appointment;
 
 /*
  * author: Daniel Burgner
@@ -12,24 +20,23 @@ import com.cindysresumeservice.service.ResumeService;
  
 @Controller
 public class CindyResumeController {
-//	 
-//    @Autowired
-//    ResumeService resumeService;  //Service which will do all data retrieval/manipulation work
-// 
+	 
+    @Autowired
+    ResumeService resumeService;  //Service which will do all data retrieval/manipulation work
+ 
     //-------------------Retrieve All Appointments--------------------------------------------------------
-/*    
-    @RequestMapping(value = "/appointment_scheduler", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/appointments", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Appointment>> listAllAppointments() {
-        List<Appointment> Appointments = resumeService.findAllAppointments();
-        if (Appointments.isEmpty()) {
+        List<Appointment> appts = resumeService.findAllAppts();
+        if (appts.isEmpty()) {
             return new ResponseEntity<List<Appointment>>(HttpStatus.NO_CONTENT);	//You many decide to return HttpStatus.NOT_FOUND
         }
-        System.out.println("Appointment size is: " + Appointments.size());
-        return new ResponseEntity<List<Appointment>>(Appointments, HttpStatus.OK);
+        System.out.println("Appointment size is: " + appts.size());
+        return new ResponseEntity<List<Appointment>>(appts, HttpStatus.OK);
     }
   
- 
-     
+/*    
+  
     //-------------------Retrieve Single Appointment--------------------------------------------------------
       
     @RequestMapping(value = "/appointment_scheduler/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
