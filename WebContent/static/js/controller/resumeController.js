@@ -3,7 +3,7 @@
  */
 'use strict';
  
-angular.module('myApp').controller('ResumeController', ['$scope', 'ResumeService', function($scope, ResumeService) {
+angular.module('myApp').controller('resumeController', ['$scope', 'resumeService', function($scope, resumeService) {
     var self = this;
     self.appointment = { id:null, name:'', date:'', time:'', email:'', comments:''};
     self.appointments = [];
@@ -18,43 +18,31 @@ angular.module('myApp').controller('ResumeController', ['$scope', 'ResumeService
  
     function fetchAllAppts() {
     	console.log("resumeController - fetchAllAppts start");
-        ResumeService.fetchAllAppts()
-            .then(
-            function(d) {
+        resumeService.fetchAllAppts().then(function(d) {
                 self.appointments = d;
-                console.log("sizex = " + self.appointments.size());
-            },
-            function(errResponse) {
+                //console.log("sizex = " + self.appointments.size());
+            }, function(errResponse) {
                 console.error('Error while fetching Appointments');
             }
         );
     }
  
     function createAppointment(appointment) {
-    	ResumeService.createAppointment(appointment)
-            .then(
-            fetchAllAppts,
-            function(errResponse){
+    	resumeService.createAppointment(appointment).then(fetchAllAppts, function(errResponse) {
                 console.error('Error while creating Appointment');
             }
         );
     }
  
     function updateAppointment(appointment, id) {
-    	ResumeService.updateAppointment(appointment, id)
-            .then(
-            fetchAllAppts,
-            function(errResponse) {
+    	resumeService.updateAppointment(appointment, id).then(fetchAllAppts, function(errResponse) {
                 console.error('Error while updating Appointment');
             }
         );
     }
  
     function deleteAppointment(id) {
-    	ResumeService.deleteAppointment(id)
-            .then(
-            fetchAllAppts,
-            function(errResponse) {
+    	resumeService.deleteAppointment(id).then(fetchAllAppts, function(errResponse) {
                 console.error('Error while deleting Appointment');
             }
         );
@@ -81,16 +69,16 @@ angular.module('myApp').controller('ResumeController', ['$scope', 'ResumeService
         }
     }
  
-    function remove(id){
+    function remove(id) {
         console.log('id to be deleted', id);
-        if (self.appointment.id === id) {//clean form if the Appointment to be deleted is shown there.
+        if (self.appointment.id === id) { //clean form if the Appointment to be deleted is shown there.
             reset();
         }
         deleteAppointment(id);
     }
  
  
-    function reset(){
+    function reset() {
         self.appointment = { id:null, name:'', date:'', time:'', email:'', comments:''};
         $scope.myForm.$setPristine(); //reset Form
     }

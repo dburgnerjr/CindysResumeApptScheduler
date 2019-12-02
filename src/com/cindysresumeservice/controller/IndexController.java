@@ -1,7 +1,5 @@
 package com.cindysresumeservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -56,6 +54,7 @@ public class IndexController {
         model.addAttribute("time", appointment.getTime());
         model.addAttribute("email", appointment.getEmail());
         model.addAttribute("comments", appointment.getComments());
+        resumeService.saveAppt(appointment);
         
         return "appointmentConfirmation";
     }
