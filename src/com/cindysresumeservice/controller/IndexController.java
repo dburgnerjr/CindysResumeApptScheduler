@@ -1,5 +1,9 @@
 package com.cindysresumeservice.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -35,20 +39,28 @@ public class IndexController {
 
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
-
 		return new ModelAndView("appointmentScheduler", "appointment", resumeService.findAllAppts());
-		// says SEVERE: Invalid property 'name' of bean class [java.util.ArrayList]: Bean property 'name' 
-		// is not readable or has an invalid getter method: Does the return type of the getter match the parameter type of the setter?
-		// but when the section to add the synchronous submission in appointment_scheduler gets commented out, I see the list 
-		// of appointments with no records displayed
 	}
 
 	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
 	public String getAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment, BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
-            return "error";
-        }
-        
+		String dateAppointment = appointment.getDate();
+		String timeAppointment = appointment.getTime();
+		
+		System.out.println("Date: " + dateAppointment);
+		System.out.println("Time: " + timeAppointment);
+		try {
+			Date dtDate = new SimpleDateFormat("yyyy-mm-dd").parse(dateAppointment);
+			Date dtTime = new SimpleDateFormat("h:mm").parse(timeAppointment);
+			appointment.setDate(dtDate.toString());
+			appointment.setTime(dtTime.toString());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	    System.out.println(appointment); //Verifying if information is same as input by user
+	             
         model.addAttribute("name", appointment.getName());
         model.addAttribute("date", appointment.getDate());
         model.addAttribute("time", appointment.getTime());

@@ -23,33 +23,45 @@ body {
 					</div>
 					<div class="row">
 						<div class="form-group col-md-12">
-							<form:label class="col-md-2 control-lable" path="name">Name</form:label>
+							<form:label class="col-md-2 control-lable" path="name">Name <span class="required">*</span></form:label>
 							<div class="col-md-7">
 								<form:input type="text" id="name" name="name" path="name" class="name form-control input-sm" required="required" /> 
 							</div>
+							<div class="col-md-7">
+								<form:errors path="name" cssClass="has-error" /> 
+							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-12">
-							<form:label class="col-md-2 control-lable" path="date">Date</form:label>
+							<form:label class="col-md-2 control-lable" path="date">Date <span class="required">*</span></form:label>
 							<div class="col-md-7">
 								<form:input type="date" id="date" name="date" path="date" class="date form-control input-sm" required="required" />
 							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-md-12">
-							<form:label class="col-md-2 control-lable" path="time">Time</form:label>
 							<div class="col-md-7">
-								<form:input type="time" id="time" name="time" path="time" class="time form-control input-sm" required="required" />
+								<form:errors path="date" cssClass="has-error" /> 
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-12">
-							<form:label class="col-md-2 control-lable" path="email">Email Address</form:label>
+							<form:label class="col-md-2 control-lable" path="time">Time <span class="required">*</span></form:label>
+							<div class="col-md-7">
+								<form:input type="time" id="time" name="time" path="time" class="time form-control input-sm" required="required" />
+							</div>
+							<div class="col-md-7">
+								<form:errors path="time" cssClass="has-error" /> 
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<form:label class="col-md-2 control-lable" path="email">Email Address <span class="required">*</span></form:label>
 							<div class="col-md-7">
 								<form:input type="email" id="email" name="email" path="email" class="email form-control input-sm" required="required" />
+							</div>
+							<div class="col-md-7">
+								<form:errors path="email" cssClass="has-error" /> 
 							</div>
 						</div>
 					</div>

@@ -27,24 +27,13 @@ resumeService.$inject = ['$http'];
  
     function createAppointment(appointment) {
         return $http.post(REST_SERVICE_URI + 'appointments/appointment', appointment);
-        console.log("this is create: " + appointment);
     }
   
     function updateAppointment(appointment, id) {
-        $http.put(REST_SERVICE_URI + 'appointments/appointment' + id, appointment).then(function (response) {
-                return response.data;
-            }, function(errResponse) {
-                console.error('Error while updating Appointment');
-            }
-        );
+        return $http.put(REST_SERVICE_URI + 'appointment/' + id, appointment);
     }
  
     function deleteAppointment(id) {
-        $http.delete(REST_SERVICE_URI  + 'appointments/appointment' + id).then(function (response) {
-                return response.data;
-            }, function(errResponse) {
-                console.error('Error while deleting Appointment');
-            }
-        );
+    	return $http.delete(REST_SERVICE_URI  + 'appointment/' + id);
     }
 };

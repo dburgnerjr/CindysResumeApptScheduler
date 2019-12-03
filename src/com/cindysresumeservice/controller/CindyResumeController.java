@@ -35,18 +35,15 @@ public class CindyResumeController {
         if (appts.isEmpty()) {
             return new ResponseEntity<List<Appointment>>(HttpStatus.NO_CONTENT);	//You many decide to return HttpStatus.NOT_FOUND
         }
-        System.out.println("Appointment size is: " + appts.size());
         return new ResponseEntity<List<Appointment>>(appts, HttpStatus.OK);
     }
   
     //-------------------Retrieve Single Appointment--------------------------------------------------------
       
-    @RequestMapping(value = "/appointments/appointment/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/appointment/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Appointment> getAppointment(@PathVariable("id") long id) {
-        System.out.println("Fetching Appointment with id " + id);
         Appointment Appointment = resumeService.findById(id);
         if (Appointment == null) {
-            System.out.println("Appointment with id " + id + " not found");
             return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<Appointment>(Appointment, HttpStatus.OK);
@@ -55,11 +52,8 @@ public class CindyResumeController {
     //-------------------Create a Appointment--------------------------------------------------------
       
     @RequestMapping(value = "/appointments/appointment", method = RequestMethod.POST)
-    public ResponseEntity<Void> createAppointment(@RequestBody Appointment appt, UriComponentsBuilder ucBuilder) {
-        System.out.println("Creating Appointment " + appt.getName());
-  
+    public ResponseEntity<Void> createAppointment(@RequestBody Appointment appt, UriComponentsBuilder ucBuilder) {  
         if (resumeService.isApptExist(appt)) {
-            System.out.println("A Appointment with name " + appt.getName() + " already exists");
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
   
@@ -72,14 +66,11 @@ public class CindyResumeController {
   
     //------------------- Update a Appointment --------------------------------------------------------
       
-    @RequestMapping(value = "/appointments/appointment/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Appointment> updateAppointment(@PathVariable("id") long id, @RequestBody Appointment appt) {
-        System.out.println("Updating Appointment " + id);
-          
+    @RequestMapping(value = "/appointment/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Appointment> updateAppointment(@PathVariable("id") long id, @RequestBody Appointment appt) {          
         Appointment currentAppointment = resumeService.findById(id);
           
         if (currentAppointment == null) {
-            System.out.println("Appointment with id " + id + " not found");
             return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
         }
   
@@ -95,28 +86,14 @@ public class CindyResumeController {
      
     //------------------- Delete a Appointment --------------------------------------------------------
       
-    @RequestMapping(value = "/appointments/appointment/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Appointment> deleteAppointment(@PathVariable("id") long id) {
-        System.out.println("Fetching & Deleting Appointment with id " + id);
-  
+    @RequestMapping(value = "/appointment/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Appointment> deleteAppointment(@PathVariable("id") long id) {  
         Appointment appt = resumeService.findById(id);
         if (appt == null) {
-            System.out.println("Unable to delete. Appointment with id " + id + " not found");
             return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
         }
   
         resumeService.deleteApptById(id);
         return new ResponseEntity<Appointment>(HttpStatus.NO_CONTENT);
     }
-  
-    //------------------- Delete All Appointments --------------------------------------------------------
-      
-    @RequestMapping(value = "/appointments/", method = RequestMethod.DELETE)
-    public ResponseEntity<Appointment> deleteAllAppointments() {
-        System.out.println("Deleting All Appointments");
-  
-        resumeService.deleteAllAppts();
-        return new ResponseEntity<Appointment>(HttpStatus.NO_CONTENT);
-    }
-
 }

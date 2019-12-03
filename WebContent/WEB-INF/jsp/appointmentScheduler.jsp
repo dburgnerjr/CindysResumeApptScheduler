@@ -102,7 +102,7 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="name">Name</label>
+							<label class="col-md-2 control-lable" for="name">Name <span class="required">*</span></label>
 							<div class="col-md-7">
 								<input type="text" ng-model="ctrl.appointment.name" id="name" name="name" class="name form-control input-sm" placeholder="Enter your name" required ng-minlength="3" />
 							</div>
@@ -112,7 +112,7 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="date">Date</label>
+							<label class="col-md-2 control-lable" for="date">Date <span class="required">*</span></label>
 							<div class="col-md-7">
 								<input type="date" ng-model="ctrl.appointment.date" id="date" name="date" class="date form-control input-sm" placeholder="Enter your Date" required />
 							</div>
@@ -121,7 +121,7 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="time">Time</label>
+							<label class="col-md-2 control-lable" for="time">Time <span class="required">*</span></label>
 							<div class="col-md-7">
 								<input type="time" ng-model="ctrl.appointment.time" id="time" name="time" class="time form-control input-sm" placeholder="Enter your Time" required />
 							</div>
@@ -130,7 +130,7 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="email">Email</label>
+							<label class="col-md-2 control-lable" for="email">Email <span class="required">*</span></label>
 							<div class="col-md-7">
 								<input type="email" ng-model="ctrl.appointment.email" id="email" name="email" class="email form-control input-sm" placeholder="Enter your Email" required />
 							</div>
@@ -175,8 +175,8 @@
 						<tr ng-repeat="u in ctrl.appointments">
 							<td><span ng-bind="u.id"></span></td>
 							<td><span ng-bind="u.name"></span></td>
-							<td><span ng-bind="u.date"></span></td>
-							<td><span ng-bind="u.time"></span></td>
+							<td><span ng-bind="u.date | date:'MM/dd/yyyy'"></span></td>
+							<td><span ng-bind="u.time | date:'h:mm a'"></span></td>
 							<td><span ng-bind="u.email"></span></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.id)"

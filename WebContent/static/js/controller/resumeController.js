@@ -17,10 +17,8 @@ angular.module('myApp').controller('resumeController', ['$scope', 'resumeService
     fetchAllAppts();
  
     function fetchAllAppts() {
-    	console.log("resumeController - fetchAllAppts start");
         resumeService.fetchAllAppts().then(function(d) {
                 self.appointments = d;
-                //console.log("sizex = " + self.appointments.size());
             }, function(errResponse) {
                 console.error('Error while fetching Appointments');
             }
@@ -50,27 +48,25 @@ angular.module('myApp').controller('resumeController', ['$scope', 'resumeService
  
     function submit() {
         if (self.appointment.id === null) {
-            console.log('Saving New Appointment', self.appointment);
             createAppointment(self.appointment);
         } else {
             updateAppointment(self.appointment, self.appointment.id);
-            console.log('Appointment updated with id ', self.appointment.id);
         }
         reset();
     }
  
     function edit(id) {
-        console.log('id to be edited', id);
         for (var i = 0; i < self.appointments.length; ++i) {
             if (self.appointments[i].id === id) {
                 self.appointment = angular.copy(self.appointments[i]);
+                self.appointment.date = new Date(self.appointment.date);
+                self.appointment.time = new Date(self.appointment.time);
                 break;
             }
         }
     }
  
     function remove(id) {
-        console.log('id to be deleted', id);
         if (self.appointment.id === id) { //clean form if the Appointment to be deleted is shown there.
             reset();
         }

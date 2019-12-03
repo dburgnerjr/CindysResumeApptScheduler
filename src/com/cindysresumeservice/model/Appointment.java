@@ -1,5 +1,6 @@
 package com.cindysresumeservice.model;
 
+import java.util.Date;
 
 public class Appointment {
 	 
@@ -10,7 +11,7 @@ public class Appointment {
     private String date;
 
     private String time;
-     
+
     private String email;
 
     private String comments;
@@ -18,8 +19,8 @@ public class Appointment {
     public Appointment() {
     	this.id = null;
         this.name = "";
-        this.date = "";
-        this.time = "";
+        this.date = null;
+        this.time = null;
         this.email = "";
     	this.comments = "";
     }
@@ -82,25 +83,8 @@ public class Appointment {
     }
  
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (!(obj instanceof Appointment))
-            return false;
-        Appointment other = (Appointment) obj;
-        if (id != other.id)
-            return false;
-        return true;
-    }
- 
-    @Override
     public String toString() {
         return "Appointment [id=" + id + ", name=" + name + ", date=" + date
                 + ", time=" + time + ", email=" + email + ", comments=" + comments + "]";
     }
-     
- 
-     
 }

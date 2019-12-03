@@ -7,9 +7,7 @@ import com.cindysresumeservice.model.Appointment;
 public interface ResumeService {
      
     Appointment findById(Long id);
-     
-    Appointment findByName(String name);
-     
+          
     void saveAppt(Appointment appt);
      
     void updateAppt(Appointment appt);
@@ -17,9 +15,6 @@ public interface ResumeService {
     void deleteApptById(Long id);
  
     List<Appointment> findAllAppts(); 
-     
-    void deleteAllAppts();
-     
-    public boolean isApptExist(Appointment appt);
-     
+
+    public boolean isApptExist(Appointment appt);     
 }

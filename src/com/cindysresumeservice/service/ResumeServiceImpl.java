@@ -1,14 +1,18 @@
 package com.cindysresumeservice.service;
 
+import com.cindysresumeservice.model.Appointment;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
  
 import org.springframework.stereotype.Service;
- 
-import com.cindysresumeservice.model.Appointment;
- 
+  
 @Service("resumeService")
 public class ResumeServiceImpl implements ResumeService {
      
@@ -21,9 +25,16 @@ public class ResumeServiceImpl implements ResumeService {
     }
      
     private static List<Appointment> populateDummyAppointments() {
-        appointments.add(new Appointment(counter.incrementAndGet(), "Sam", "11/12/2019", "1:00 PM", "sam@abc.com", ""));
-        appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", "11/12/2019", "2:00 PM", "tomy@abc.com", ""));
-        appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", "11/12/2019", "3:00 PM", "kelly@abc.com", ""));
+    	SimpleDateFormat sdfDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    	SimpleDateFormat sdfTimeFormat = new SimpleDateFormat("hh:mm a");
+//        try {
+			appointments.add(new Appointment(counter.incrementAndGet(), "Sam", "11/12/2019", "1:00 PM", "sam@abc.com", ""));
+	        appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", "11/12/2019", "2:00 PM", "tomy@abc.com", ""));
+	        appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", "11/12/2019", "3:00 PM", "kelly@abc.com", ""));
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
         System.out.println("List size is: " + appointments.size());
         return appointments;
     }
@@ -41,16 +52,7 @@ public class ResumeServiceImpl implements ResumeService {
         }
         return null;
     }
-     
-    public Appointment findByName(String name) {
-        for(Appointment appt : appointments) {
-            if (appt.getName().equalsIgnoreCase(name)) {
-                return appt;
-            }
-        }
-        return null;
-    }
-     
+          
     public void saveAppt(Appointment appt) {
     	appt.setId(counter.incrementAndGet());
         appointments.add(appt);
@@ -71,11 +73,6 @@ public class ResumeServiceImpl implements ResumeService {
     }
  
     public boolean isApptExist(Appointment appt) {
-        return findByName(appt.getName()) != null;
-    }
-     
-    public void deleteAllAppts() {
-        appointments.clear();
-    }
-  
+        return findById(appt.getId()) != null;
+    }     
 }
