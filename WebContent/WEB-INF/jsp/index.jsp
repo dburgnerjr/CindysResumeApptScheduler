@@ -14,7 +14,7 @@ body {
 			Cindy's Resume Appointment Scheduling Service<br> <br>
 		</h2>
 		<h3>
-			<a href="appointmentScheduler"><img src="images/cindys_resume.jfif" alt="Cindy's Resume" width="225" height="225"></a><br>
+			<a href="appointmentScheduler"><img src="resources/images/cindys_resume.jfif" alt="Cindy's Resume" width="225" height="225"></a><br>
 			Please click on the image to continue.
 		</h3>
 	</div>

@@ -11,6 +11,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>4.3.1.RELEASE</springframework.version>
 		<jacksoncore.version>2.10.1</jacksoncore.version>
+		<javaxservlet.version>3.1.0</javaxservlet.version>
+		<jstl.version>1.2</jstl.version>
+		<taglibs.version>1.2.5</taglibs.version>
 	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -44,13 +47,13 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${javaxservlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${jstl.version}</version>
 		</dependency>
 		<dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -60,9 +63,8 @@
         <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard</artifactId>
-            <version>1.2.5</version>
+            <version>${taglibs.version}</version>
             <type>pom</type>
         </dependency>
 	</dependencies>
-
 </project>

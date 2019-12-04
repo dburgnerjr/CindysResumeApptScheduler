@@ -21,7 +21,7 @@ import com.cindysresumeservice.service.ResumeService;
 @Controller
 public class IndexController {
 	@Autowired
-	ResumeService resumeService;
+	public ResumeService resumeService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getIndexPage() {
@@ -44,7 +44,9 @@ public class IndexController {
 	}
 
 	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
-	public String getAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment, BindingResult result, ModelMap model) {
+	public ModelAndView getAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment) {
+		ModelAndView mavView = new ModelAndView();
+		
 		String dateAppointment = appointment.getDate();
 	
 		try {
@@ -56,12 +58,14 @@ public class IndexController {
 			e.printStackTrace();
 		}
 			             
-        model.addAttribute("name", appointment.getName());
-        model.addAttribute("date", appointment.getDate());
-        model.addAttribute("email", appointment.getEmail());
-        model.addAttribute("comments", appointment.getComments());
+		mavView.addObject("name", appointment.getName());
+		mavView.addObject("date", appointment.getDate());
+		mavView.addObject("email", appointment.getEmail());
+		mavView.addObject("comments", appointment.getComments());
+		
         resumeService.saveAppt(appointment);
+        mavView.setViewName("appointmentConfirmation");
         
-        return "appointmentConfirmation";
+        return mavView;
     }
 }

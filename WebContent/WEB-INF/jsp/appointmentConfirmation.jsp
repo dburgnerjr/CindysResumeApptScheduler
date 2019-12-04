@@ -4,7 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Your Appointment Is Confirmed</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link href="static/css/app.css" rel="stylesheet" />
+<link href="resources/css/app.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="generic-container">

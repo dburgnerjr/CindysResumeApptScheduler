@@ -1,6 +1,3 @@
-/**
- * 
- */
 'use strict';
  
 angular.module('myApp').controller('resumeController', ['$scope', 'resumeService', function($scope, resumeService) {

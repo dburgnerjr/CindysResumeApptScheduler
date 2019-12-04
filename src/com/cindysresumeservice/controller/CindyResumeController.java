@@ -24,9 +24,8 @@ import com.cindysresumeservice.model.Appointment;
  
 @RestController
 public class CindyResumeController {
-	 
-    @Autowired
-    ResumeService resumeService;  //Service which will do all data retrieval/manipulation work
+	@Autowired
+	public ResumeService resumeService;  //Service which will do all data retrieval/manipulation work
  
     //-------------------Retrieve All Appointments--------------------------------------------------------
     @RequestMapping(value = "/appointments", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

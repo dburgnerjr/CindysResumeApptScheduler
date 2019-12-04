@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
- 
+
 import org.springframework.stereotype.Service;
-  
-@Service("resumeService")
+   
+@Service
 public class ResumeServiceImpl implements ResumeService {
      
     private static final AtomicLong counter = new AtomicLong();
