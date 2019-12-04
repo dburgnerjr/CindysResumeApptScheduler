@@ -76,7 +76,6 @@ public class CindyResumeController {
   
         currentAppointment.setName(appt.getName());
         currentAppointment.setDate(appt.getDate());
-        currentAppointment.setTime(appt.getTime());
         currentAppointment.setEmail(appt.getEmail());
         currentAppointment.setComments(appt.getComments());
          

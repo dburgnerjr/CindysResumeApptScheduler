@@ -21,14 +21,8 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable">Date :</label>
+						<label class="col-md-2 control-lable">Date/Time :</label>
 						<div class="col-md-7">${date}</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable">Time :</label>
-						<div class="col-md-7">${time}</div>
 					</div>
 				</div>
 				<div class="row">

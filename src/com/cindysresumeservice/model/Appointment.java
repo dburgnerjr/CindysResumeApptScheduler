@@ -1,7 +1,5 @@
 package com.cindysresumeservice.model;
 
-import java.util.Date;
-
 public class Appointment {
 	 
     private Long id;
@@ -10,8 +8,6 @@ public class Appointment {
      
     private String date;
 
-    private String time;
-
     private String email;
 
     private String comments;
@@ -19,17 +15,15 @@ public class Appointment {
     public Appointment() {
     	this.id = null;
         this.name = "";
-        this.date = null;
-        this.time = null;
+        this.date = "";
         this.email = "";
     	this.comments = "";
     }
     
-    public Appointment(Long id, String name, String date, String time, String email, String comments) {
+    public Appointment(Long id, String name, String date, String email, String comments) {
         this.id = id;
         this.name = name;
         this.date = date;
-        this.time = time;
         this.email = email;
         this.comments = comments;
     }
@@ -58,14 +52,6 @@ public class Appointment {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
-    }
- 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -84,7 +70,7 @@ public class Appointment {
  
     @Override
     public String toString() {
-        return "Appointment [id=" + id + ", name=" + name + ", date=" + date
-                + ", time=" + time + ", email=" + email + ", comments=" + comments + "]";
+        return "Appointment [id=" + id + ", name=" + name + ", date/time=" + date
+                + ", email=" + email + ", comments=" + comments + "]";
     }
 }

@@ -112,18 +112,9 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="date">Date <span class="required">*</span></label>
+							<label class="col-md-2 control-lable" for="date">Date/Time <span class="required">*</span></label>
 							<div class="col-md-7">
-								<input type="date" ng-model="ctrl.appointment.date" id="date" name="date" class="date form-control input-sm" placeholder="Enter your Date" required />
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="time">Time <span class="required">*</span></label>
-							<div class="col-md-7">
-								<input type="time" ng-model="ctrl.appointment.time" id="time" name="time" class="time form-control input-sm" placeholder="Enter your Time" required />
+								<input type="datetime-local" ng-model="ctrl.appointment.date" id="date" name="date" class="date form-control input-sm" placeholder="Enter your Date/Time" required />
 							</div>
 						</div>
 					</div>
@@ -165,8 +156,7 @@
 						<tr>
 							<th>ID</th>
 							<th>Name</th>
-							<th>Date</th>
-							<th>Time</th>
+							<th>Date/Time</th>
 							<th>Email</th>
 							<th width="20%"></th>
 						</tr>
@@ -175,8 +165,7 @@
 						<tr ng-repeat="u in ctrl.appointments">
 							<td><span ng-bind="u.id"></span></td>
 							<td><span ng-bind="u.name"></span></td>
-							<td><span ng-bind="u.date | date:'MM/dd/yyyy'"></span></td>
-							<td><span ng-bind="u.time | date:'h:mm a'"></span></td>
+							<td><span ng-bind="u.date | date:'MM/dd/yyyy h:mm a'"></span></td>
 							<td><span ng-bind="u.email"></span></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.id)"
@@ -199,44 +188,3 @@
     <script src="<c:url value='/static/js/controller/resumeController.js' />"></script>
 </body>
 </html>
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> --%>
-<!-- <!doctype html> -->
-<!-- <head> -->
-
-
-<!-- </head> -->
-<!-- <body ng-app="myApp" class="ng-cloak"> -->
-<!--       <div class="generic-container" ng-controller="ResumeController as ctrl"> -->
-<!--           <div class="panel panel-default"> -->
-<!--                 Default panel contents -->
-<!--               <div class="panel-heading"><span class="lead">List of Appointments </span></div> -->
-<!--               <div class="tablecontainer"> -->
-<!--                   <table class="table table-hover"> -->
-<!--                       <thead> -->
-<!--                           <tr> -->
-<!--                               <th>ID</th> -->
-<!--                               <th>Name</th> -->
-<!--                               <th>Date</th> -->
-<!--                               <th>Time</th> -->
-<!--                               <th>Email</th> -->
-<!--                               <th width="20%"></th> -->
-<!--                           </tr> -->
-<!--                       </thead> -->
-<!--                       <tbody> -->
-<!--                           <tr ng-repeat="u in ctrl.Appointments"> -->
-<!--                               <td><span ng-bind="u.id"></span></td> -->
-<!--                               <td><span ng-bind="u.name"></span></td> -->
-<!--                               <td><span ng-bind="u.date"></span></td> -->
-<!--                               <td><span ng-bind="u.time"></span></td> -->
-<!--                               <td><span ng-bind="u.email"></span></td> -->
-<!--                               <td> -->
-<!--                               <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button> -->
-<!--                               </td> -->
-<!--                           </tr> -->
-<!--                       </tbody> -->
-<!--                   </table> -->
-<!--               </div> -->
-<!--           </div> -->
-<!--       </div> -->
-<!--   </body> -->
-<!--   </html> -->

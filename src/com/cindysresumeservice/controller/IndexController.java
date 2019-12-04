@@ -1,5 +1,6 @@
 package com.cindysresumeservice.controller;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,25 +46,18 @@ public class IndexController {
 	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
 	public String getAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment, BindingResult result, ModelMap model) {
 		String dateAppointment = appointment.getDate();
-		String timeAppointment = appointment.getTime();
-		
-		System.out.println("Date: " + dateAppointment);
-		System.out.println("Time: " + timeAppointment);
+	
 		try {
-			Date dtDate = new SimpleDateFormat("yyyy-mm-dd").parse(dateAppointment);
-			Date dtTime = new SimpleDateFormat("h:mm").parse(timeAppointment);
-			appointment.setDate(dtDate.toString());
-			appointment.setTime(dtTime.toString());
+			Date dtDateOld = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(dateAppointment);
+			DateFormat dfDateTgt = new SimpleDateFormat("MM/dd/yyyy h:mm a");
+			appointment.setDate(dfDateTgt.format(dtDateOld));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	    System.out.println(appointment); //Verifying if information is same as input by user
-	             
+			             
         model.addAttribute("name", appointment.getName());
         model.addAttribute("date", appointment.getDate());
-        model.addAttribute("time", appointment.getTime());
         model.addAttribute("email", appointment.getEmail());
         model.addAttribute("comments", appointment.getComments());
         resumeService.saveAppt(appointment);

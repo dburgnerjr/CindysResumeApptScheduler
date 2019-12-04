@@ -5,7 +5,7 @@
  
 angular.module('myApp').controller('resumeController', ['$scope', 'resumeService', function($scope, resumeService) {
     var self = this;
-    self.appointment = { id:null, name:'', date:'', time:'', email:'', comments:''};
+    self.appointment = { id:null, name:'', date:'', email:'', comments:''};
     self.appointments = [];
  
     self.submit = submit;
@@ -60,7 +60,6 @@ angular.module('myApp').controller('resumeController', ['$scope', 'resumeService
             if (self.appointments[i].id === id) {
                 self.appointment = angular.copy(self.appointments[i]);
                 self.appointment.date = new Date(self.appointment.date);
-                self.appointment.time = new Date(self.appointment.time);
                 break;
             }
         }
@@ -75,7 +74,7 @@ angular.module('myApp').controller('resumeController', ['$scope', 'resumeService
  
  
     function reset() {
-        self.appointment = { id:null, name:'', date:'', time:'', email:'', comments:''};
+        self.appointment = { id:null, name:'', date:'', email:'', comments:''};
         $scope.myForm.$setPristine(); //reset Form
     }
  
