@@ -39,12 +39,14 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<input type="button" onclick="location.href='appointmentScheduler';" class="btn btn-primary btn-sm"value="Back" />
-						<input type="button" onclick="location.href='index';" class="btn btn-primary btn-sm"value="Home" />				
+						<input type="button" onclick="appointmentScheduler()" class="btn btn-primary btn-sm"value="Back" />
+						<input type="button" onclick="goHome()" class="btn btn-primary btn-sm"value="Home" />				
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="resources/js/location.js"></script>
 </body>
 </html>

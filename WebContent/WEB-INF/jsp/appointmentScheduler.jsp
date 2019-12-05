@@ -29,24 +29,55 @@
 	background-color: yellow;
 }
 </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link href="resources/css/app.css" rel="stylesheet" />
+<link href="resources/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body class="ng-cloak">
 	<div class="generic-container" ng-controller="resumeController as ctrl">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<span class="lead">Resume Appointment Scheduler Form </span>
+				<span class="lead">Resume Appointment Schedule</span>
+			</div>
+			<div class="tablecontainer">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Date/Time</th>
+							<th>Email</th>
+							<th>Comments</th>
+							<th width="20%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="appt in ctrl.appointments">
+							<td><span ng-bind="appt.id"></span></td>
+							<td><span ng-bind="appt.name"></span></td>
+							<td><span ng-bind="appt.date | date:'MM/dd/yyyy h:mm a'"></span></td>
+							<td><span ng-bind="appt.email"></span></td>
+							<td><span ng-bind="appt.comments"></span></td>
+							<td>
+								<button type="button" ng-click="ctrl.edit(appt.id)"
+									class="btn btn-success custom-width">Edit</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<button class="tablink" onclick="openSubmission('asynchronous')">Asynchronous Submission</button>
+			<button class="tablink" onclick="openSubmission('synchronous')">Synchronous Submission</button>
+			<button class="tablink" onclick="openSubmission('home')">Home</button>
+		</div>
+		<div id="asynchronous" class="tabcontent panel panel-default">
+			<div class="panel-heading">
+				<span class="lead">Asynchronous Submission</span>
 			</div>
 			<div class="formcontainer">
-				<form ng-submit="ctrl.submit()" name="myForm"
-					class="form-horizontal">
+				<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
 					<input type="hidden" ng-model="ctrl.appointment.id" />
-					<div class="row">
-						<label class="col-md-2 control-lable" for="async_submit">Asynchronous
-							Submission</label>
-					</div>
-
 					<div class="row">
 						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable" for="name">Name <span class="required">*</span></label>
@@ -85,53 +116,17 @@
 					</div>
 
 					<div class="row">
-						<div class="form-actions floatRight">
+						<div class="form-actions floatLeft">
 							<input type="submit" value="{{!ctrl.appointment.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
-							<button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<span class="lead">List of Appointments </span>
-			</div>
-			<div class="tablecontainer">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Name</th>
-							<th>Date/Time</th>
-							<th>Email</th>
-							<th>Comments</th>
-							<th width="20%"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="appt in ctrl.appointments">
-							<td><span ng-bind="appt.id"></span></td>
-							<td><span ng-bind="appt.name"></span></td>
-							<td><span ng-bind="appt.date | date:'MM/dd/yyyy h:mm a'"></span></td>
-							<td><span ng-bind="appt.email"></span></td>
-							<td><span ng-bind="appt.comments"></span></td>
-							<td>
-								<button type="button" ng-click="ctrl.edit(appt.id)"
-									class="btn btn-success custom-width">Edit</button>
-								<button type="button" ng-click="ctrl.remove(appt.id)"
-									class="btn btn-danger custom-width">Remove</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div>
-				<input type="button" onclick="location.href='newAppointment';" class="btn btn-primary btn-sm"value="New Appointment" />
-			</div>
-		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+	<script src="<c:url value='/resources/js/location.js' />"></script>
 	<script src="<c:url value='/resources/js/app.js' />"></script>
     <script src="<c:url value='/resources/js/service/resumeService.js' />"></script>
     <script src="<c:url value='/resources/js/controller/resumeController.js' />"></script>

@@ -41,11 +41,11 @@ public class CindyResumeController {
       
     @RequestMapping(value = "/appointment/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Appointment> getAppointment(@PathVariable("id") long id) {
-        Appointment Appointment = resumeService.findById(id);
-        if (Appointment == null) {
+        Appointment appt = resumeService.findById(id);
+        if (null == appt) {
             return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<Appointment>(Appointment, HttpStatus.OK);
+        return new ResponseEntity<Appointment>(appt, HttpStatus.OK);
     }
   
     //-------------------Create a Appointment--------------------------------------------------------

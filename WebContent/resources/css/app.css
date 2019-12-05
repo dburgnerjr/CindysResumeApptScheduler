@@ -1,19 +1,47 @@
 body, #mainWrapper {
 	height: 70%;
-	background-color: rgb(245, 245, 245);
+	background-image: url('resources/images/bg.png');
+	font-family: "Lato", sans-serif;
+}
+
+label {
+  background-color: #F27D00;
+  color: #FFFFFF;
+}
+
+.tablink {
+  background-color: #F27D00;
+  color: #FFFFFF;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 15px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #FFFFFF;
+  color: #F27D00;
+}
+
+/* Style the tab content */
+.tabcontent {
+  color: #FFFFFF;
+  display: none;
+  padding: 20px;
+  text-align: center;
 }
 
 body, .form-control {
 	font-size: 12px !important;
+	
 }
 
-.floatRight {
-	float: right;
-	margin-right: 18px;
-}
-
-.has-error {
-	color: red;
+.floatLeft {
+	float: left;
+	margin-left: 18px;
 }
 
 .required {
@@ -21,22 +49,20 @@ body, .form-control {
 }
 
 .formcontainer {
-	background-color: #DAE8E8;
-	padding: 20px;
+	background-color: #F27D00;
+	padding: 10px;
 }
 
 .tablecontainer {
-	padding-left: 20px;
+	padding-left: 10px;
 }
 
 .generic-container {
-	width: 80%;
-	margin-left: 20px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 20px;
-	background-color: #EAE7E7;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	box-shadow: 0 0 30px black;
+	width: 70%;
+	margin-left: 15px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	background-color: #F27D00;
+	border: 1px solid #FFF;
+	box-shadow: 0 0 10px orange;
 }

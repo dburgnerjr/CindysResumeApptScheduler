@@ -194,7 +194,16 @@ table {
 
 td, th {
 	padding: 0;
+	color: #FFF;
+	text-align: center;
 }
+
+tr:hover td {
+	padding: 0;
+	color: #F27D00;
+	background-color: #FFF;
+}
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
 	*, *:before, *:after {
@@ -1495,6 +1504,7 @@ p {
 	font-size: 16px;
 	font-weight: 300;
 	line-height: 1.4;
+	text-align: center;
 }
 
 @media ( min-width : 768px) {
@@ -2565,7 +2575,7 @@ caption {
 }
 
 th {
-	text-align: left;
+	text-align: center;
 }
 
 .table {
@@ -5789,7 +5799,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover,
 
 .panel {
 	margin-bottom: 20px;
-	background-color: #fff;
+	background-color: #F27D00;
 	border: 1px solid transparent;
 	border-radius: 4px;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -6034,13 +6044,15 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover,
 }
 
 .panel-default {
-	border-color: #ddd;
+	border-color: #fff;
+	text-align: center;
 }
 
 .panel-default>.panel-heading {
-	color: #333;
-	background-color: #f5f5f5;
-	border-color: #ddd;
+	color: #FFF;
+	background-color: #F27D00;
+	text-align: center;
+	border-color: #FFF;
 }
 
 .panel-default>.panel-heading+.panel-collapse>.panel-body {

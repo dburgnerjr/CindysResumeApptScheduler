@@ -4,11 +4,12 @@
 <title>Schedule a New Appointment</title>
 <style type="text/css">
 body {
-	background-image: url('https://cdn.crunchify.com/bg.png');
+	background-image: url('resources/images/bg.png');
 }
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link href="static/css/app.css" rel="stylesheet" />
+<link href="resources/css/app.css" rel="stylesheet" />
+<link href="resources/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="generic-container">
@@ -56,14 +57,14 @@ body {
 					<div class="row">
 						<div class="form-actions floatLeft">
 							<input type="submit" value="Add" class="btn btn-primary btn-sm">
+							<input type="button" onclick="goHome()" class="btn btn-primary btn-sm" value="Home" />
 						</div>
 					</div>
 				</form:form>
 			</div>
 		</div>
 	</div>
-	<div>
-		<input type="button" onclick="location.href='index';" class="btn btn-primary btn-sm"value="Home" />
-	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="resources/js/location.js"></script>
 </body>
 </html>

@@ -1,15 +1,12 @@
 'use strict';
  
-angular.module('myApp').controller('resumeController', ['$scope', 'resumeService', function($scope, resumeService) {
+angular.module('myApp').controller('resumeController', ['resumeService', function(resumeService) {
     var self = this;
     self.appointment = { id:null, name:'', date:'', email:'', comments:''};
     self.appointments = [];
  
     self.submit = submit;
     self.edit = edit;
-    self.remove = remove;
-    self.reset = reset;
- 
  
     fetchAllAppts();
  
@@ -36,20 +33,12 @@ angular.module('myApp').controller('resumeController', ['$scope', 'resumeService
         );
     }
  
-    function deleteAppointment(id) {
-    	resumeService.deleteAppointment(id).then(fetchAllAppts, function(errResponse) {
-                console.error('Error while deleting Appointment');
-            }
-        );
-    }
- 
     function submit() {
         if (self.appointment.id === null) {
             createAppointment(self.appointment);
         } else {
             updateAppointment(self.appointment, self.appointment.id);
         }
-        reset();
     }
  
     function edit(id) {
@@ -61,18 +50,4 @@ angular.module('myApp').controller('resumeController', ['$scope', 'resumeService
             }
         }
     }
- 
-    function remove(id) {
-        if (self.appointment.id === id) { //clean form if the Appointment to be deleted is shown there.
-            reset();
-        }
-        deleteAppointment(id);
-    }
- 
- 
-    function reset() {
-        self.appointment = { id:null, name:'', date:'', email:'', comments:''};
-        $scope.myForm.$setPristine(); //reset Form
-    }
- 
 }]);

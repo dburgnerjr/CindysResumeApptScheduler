@@ -3,7 +3,7 @@
 <title>Cindy's Resume Appointment Scheduling Service</title>
 <style type="text/css">
 body {
-	background-image: url('https://cdn.crunchify.com/bg.png');
+	background-image: url('resources/images/bg.png');
 }
 </style>
 </head>
