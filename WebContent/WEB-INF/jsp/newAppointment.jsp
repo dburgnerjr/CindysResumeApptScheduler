@@ -2,12 +2,6 @@
 <!DOCTYPE html>
 <head>
 <title>Schedule a New Appointment</title>
-<style type="text/css">
-body {
-	background-image: url('resources/images/bg.png');
-}
-</style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link href="resources/css/app.css" rel="stylesheet" />
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
 </head>
@@ -15,13 +9,10 @@ body {
 	<div class="generic-container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<span class="lead">Resume Appointment Scheduler Form </span>
+				<span class="lead">Resume Appointment Scheduler Form</span>
 			</div>
 			<div class="formcontainer">	        
 				<form:form method="POST" action="/CindysResumeApptScheduler/appointmentConfirmation" modelAttribute="appointment">
-					<div class="row">
-						<label class="col-md-2 control-lable" for="sync_submit">Synchronous Submission</label>
-					</div>
 					<div class="row">
 						<div class="form-group col-md-12">
 							<form:label class="col-md-2 control-lable" path="name">Name <span class="required">*</span></form:label>
@@ -56,8 +47,8 @@ body {
 					</div>
 					<div class="row">
 						<div class="form-actions floatLeft">
-							<input type="submit" value="Add" class="btn btn-primary btn-sm">
-							<input type="button" onclick="goHome()" class="btn btn-primary btn-sm" value="Home" />
+							<input type="submit" value="Add" class="btn btn-success custom-width">
+							<input type="button" onclick="goHome()" class="btn btn-success custom-width" value="Home" />
 						</div>
 					</div>
 				</form:form>

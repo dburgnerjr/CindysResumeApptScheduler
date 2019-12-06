@@ -58,9 +58,7 @@ public class CindyResumeController {
   
         resumeService.saveAppt(appt);
   
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/appointments/appointment/{id}").buildAndExpand(appt.getId()).toUri());
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+        return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
   
     //------------------- Update a Appointment --------------------------------------------------------

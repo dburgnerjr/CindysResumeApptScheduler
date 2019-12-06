@@ -4,31 +4,6 @@
 <html ng-app="myApp">
 <head>
 <title>Cindy's Resume Appointment Schedule Page</title>
-<style>
-.name.ng-valid {
-	background-color: lightgreen;
-}
-
-.name.ng-dirty.ng-invalid-required {
-	background-color: red;
-}
-
-.name.ng-dirty.ng-invalid-minlength {
-	background-color: yellow;
-}
-
-.email.ng-valid {
-	background-color: lightgreen;
-}
-
-.email.ng-dirty.ng-invalid-required {
-	background-color: red;
-}
-
-.email.ng-dirty.ng-invalid-email {
-	background-color: yellow;
-}
-</style>
 <link href="resources/css/app.css" rel="stylesheet" />
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
 </head>
@@ -67,13 +42,14 @@
 			</div>
 		</div>
 		<div class="panel panel-default">
-			<button class="tablink" onclick="openSubmission('asynchronous')">Asynchronous Submission</button>
-			<button class="tablink" onclick="openSubmission('synchronous')">Synchronous Submission</button>
-			<button class="tablink" onclick="openSubmission('home')">Home</button>
+			<div class="row">
+				<button class="tablink" onclick="openSubmission('synchronous')">Synchronous Submission</button>
+				<button class="tablink" onclick="openSubmission('home')">Home</button>
+			</div>
 		</div>
-		<div id="asynchronous" class="tabcontent panel panel-default">
+		<div class="panel panel-default">
 			<div class="panel-heading">
-				<span class="lead">Asynchronous Submission</span>
+				<span class="lead">Resume Appointment Scheduler Form</span>
 			</div>
 			<div class="formcontainer">
 				<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
@@ -117,7 +93,7 @@
 
 					<div class="row">
 						<div class="form-actions floatLeft">
-							<input type="submit" value="{{!ctrl.appointment.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+							<input type="submit" value="{{!ctrl.appointment.id ? 'Add' : 'Update'}}" class="btn btn-success custom-width" ng-disabled="myForm.$invalid">
 						</div>
 					</div>
 				</form>

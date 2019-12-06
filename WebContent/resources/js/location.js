@@ -27,7 +27,4 @@ function openSubmission(submission) {
 		newAppointment();
 	else if (submission == "home")
 		goHome();
-	else
-		document.getElementById(submission).style.display = "block";
-
 }

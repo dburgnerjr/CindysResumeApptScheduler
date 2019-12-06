@@ -1,6 +1,6 @@
 body, #mainWrapper {
 	height: 70%;
-	background-image: url('resources/images/bg.png');
+	background-image: url('../images/bg.png');
 	font-family: "Lato", sans-serif;
 }
 
@@ -12,7 +12,6 @@ label {
 .tablink {
   background-color: #F27D00;
   color: #FFFFFF;
-  float: left;
   border: none;
   outline: none;
   cursor: pointer;
@@ -55,6 +54,11 @@ body, .form-control {
 
 .tablecontainer {
 	padding-left: 10px;
+}
+
+.control-lable {
+	text-align: left;
+	padding: 7px 0;
 }
 
 .generic-container {

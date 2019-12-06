@@ -1856,7 +1856,6 @@ pre code {
 
 .row {
 	margin-right: -15px;
-	margin-left: -15px;
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2,
@@ -2279,7 +2278,7 @@ pre code {
 		width: 25%;
 	}
 	.col-md-2 {
-		width: 16.66666667%;
+		width: 20%;
 	}
 	.col-md-1 {
 		width: 8.33333333%;
@@ -2793,7 +2792,6 @@ legend {
 label {
 	display: inline-block;
 	max-width: 100%;
-	margin-bottom: 5px;
 	font-weight: bold;
 }
 
@@ -3411,16 +3409,16 @@ textarea.form-group-lg .form-control, select[multiple].form-group-lg .form-contr
 }
 
 .btn-success {
-	color: #fff;
-	background-color: #5cb85c;
-	border-color: #4cae4c;
+	color: #FFFFFF;
+	background-color: #8A8C84;
+	border-color: #8A8C84;
 }
 
 .btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active,
 	.btn-success.active, .open>.dropdown-toggle.btn-success {
-	color: #fff;
-	background-color: #449d44;
-	border-color: #398439;
+	color: #8A8C84;
+	background-color: #FFFFFF;
+	border-color: #FFFFFF;
 }
 
 .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success
@@ -3435,13 +3433,13 @@ textarea.form-group-lg .form-control, select[multiple].form-group-lg .form-contr
 	.btn-success.disabled:active, .btn-success[disabled]:active, fieldset[disabled] .btn-success:active,
 	.btn-success.disabled.active, .btn-success[disabled].active, fieldset[disabled] .btn-success.active
 	{
-	background-color: #5cb85c;
-	border-color: #4cae4c;
+	background-color: #8A8C84;
+	border-color: #8A8C84;
 }
 
 .btn-success .badge {
-	color: #5cb85c;
-	background-color: #fff;
+	color: #FFFFFF;
+	background-color: #8A8C84;
 }
 
 .btn-info {
@@ -5798,9 +5796,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover,
 }
 
 .panel {
-	margin-bottom: 20px;
 	background-color: #F27D00;
-	border: 1px solid transparent;
+	border: none;
 	border-radius: 4px;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -6044,7 +6041,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover,
 }
 
 .panel-default {
-	border-color: #fff;
+	border-bottom: none;
 	text-align: center;
 }
 
@@ -6052,7 +6049,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover,
 	color: #FFF;
 	background-color: #F27D00;
 	text-align: center;
-	border-color: #FFF;
+	border-bottom: none;
 }
 
 .panel-default>.panel-heading+.panel-collapse>.panel-body {

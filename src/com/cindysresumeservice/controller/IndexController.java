@@ -23,16 +23,11 @@ public class IndexController {
 	@Autowired
 	public ResumeService resumeService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public String getIndexPage() {
 		return "index";
 	}
-	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String getHomePage() {
-		return "index";
-	}
-	
+		
 	@RequestMapping(value = "/newAppointment", method = RequestMethod.GET)
 	public ModelAndView newAppointment() {
 		return new ModelAndView("newAppointment", "appointment", new Appointment());
