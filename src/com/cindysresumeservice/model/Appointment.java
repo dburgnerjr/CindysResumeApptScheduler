@@ -13,11 +13,6 @@ public class Appointment {
     private String comments;
      
     public Appointment() {
-    	this.id = null;
-        this.name = "";
-        this.date = "";
-        this.email = "";
-    	this.comments = "";
     }
     
     public Appointment(Long id, String name, String date, String email, String comments) {

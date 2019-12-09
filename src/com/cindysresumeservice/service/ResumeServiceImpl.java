@@ -14,7 +14,7 @@ public class ResumeServiceImpl implements ResumeService {
      
     private static final AtomicLong counter = new AtomicLong();
      
-    private static List<Appointment> appointments = new ArrayList<Appointment>();
+    private static List<Appointment> appointments = new ArrayList<>();
      
     static {
         appointments = populateDummyAppointments();
@@ -32,12 +32,21 @@ public class ResumeServiceImpl implements ResumeService {
     }
      
     public Appointment findById(Long id) {
-        for (Appointment appt : appointments) {
-            if (appt.getId() == id) {
-                return appt;
-            }
-        }
-        return null;
+    	int nLeft = 0;
+    	int nRight = appointments.size() - 1;
+    	int nMid = (nLeft + nRight) / 2;
+    	Appointment appt = appointments.get(nMid);
+    	while (!appointments.get(nMid).getId().equals(id)) {
+    		if (appointments.get(nMid).getId() < id) {
+    			nLeft = nMid;
+    		} else if (appointments.get(nMid).getId() > id) {
+    			nRight = nMid;
+    		} else {
+    			appt = appointments.get(nMid);
+    		}
+    		nMid = (nLeft + nRight) / 2;
+    	}
+        return appt;
     }
           
     public void saveAppt(Appointment appt) {

@@ -1,13 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<html ng-app="myApp">
+<html>
 <head>
 <title>Cindy's Resume Appointment Schedule Page</title>
 <link href="resources/css/app.css" rel="stylesheet" />
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
 </head>
-<body class="ng-cloak">
+<body ng-app="myApp">
 	<div class="generic-container" ng-controller="resumeController as ctrl">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -29,7 +29,7 @@
 						<tr ng-repeat="appt in ctrl.appointments">
 							<td><span ng-bind="appt.id"></span></td>
 							<td><span ng-bind="appt.name"></span></td>
-							<td><span ng-bind="appt.date | date:'MM/dd/yyyy h:mm a'"></span></td>
+							<td><span ng-bind="appt.date"></span></td>
 							<td><span ng-bind="appt.email"></span></td>
 							<td><span ng-bind="appt.comments"></span></td>
 							<td>

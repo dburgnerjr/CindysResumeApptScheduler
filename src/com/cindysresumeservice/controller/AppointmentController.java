@@ -7,8 +7,6 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +17,9 @@ import com.cindysresumeservice.model.Appointment;
 import com.cindysresumeservice.service.ResumeService;
 
 @Controller
-public class IndexController {
+public class AppointmentController {
 	@Autowired
-	public ResumeService resumeService;
+	private ResumeService resumeService;
 
 	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public String getIndexPage() {
@@ -35,16 +33,18 @@ public class IndexController {
 
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
-		return new ModelAndView("appointmentScheduler", "appointment", resumeService.findAllAppts());
+		return new ModelAndView("appointmentScheduler", "appointments", resumeService.findAllAppts());
 	}
 
 	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
-	public ModelAndView getAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment) {
+	public ModelAndView sendAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment) {
 		ModelAndView mavView = new ModelAndView();
 		
 		String dateAppointment = appointment.getDate();
-	
+		
 		try {
+			// when the controller receives the date string, it is in the yyyy-MM-dd'T'HH:mm format
+			// this section sets it to the MM/dd/yyyy h:mm a format
 			Date dtDateOld = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(dateAppointment);
 			DateFormat dfDateTgt = new SimpleDateFormat("MM/dd/yyyy h:mm a");
 			appointment.setDate(dfDateTgt.format(dtDateOld));
@@ -52,7 +52,7 @@ public class IndexController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			             
+		
 		mavView.addObject("name", appointment.getName());
 		mavView.addObject("date", appointment.getDate());
 		mavView.addObject("email", appointment.getEmail());

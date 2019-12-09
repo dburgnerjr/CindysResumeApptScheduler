@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
+<html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Your Appointment Is Confirmed</title>
 <link href="resources/css/app.css" rel="stylesheet" />
 <link href="resources/css/bootstrap.css" rel="stylesheet" />

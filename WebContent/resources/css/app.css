@@ -4,6 +4,10 @@ body, #mainWrapper {
 	font-family: "Lato", sans-serif;
 }
 
+.intropage {
+	text-align: center;
+}
+
 label {
   background-color: #F27D00;
   color: #FFFFFF;

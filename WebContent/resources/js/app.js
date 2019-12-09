@@ -1,3 +1,3 @@
 'use strict';
  
-var App = angular.module('myApp', []);
+var resumeAppt = angular.module('myApp', []);

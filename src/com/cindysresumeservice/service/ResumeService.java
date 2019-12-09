@@ -16,5 +16,5 @@ public interface ResumeService {
  
     List<Appointment> findAllAppts(); 
 
-    public boolean isApptExist(Appointment appt);     
+    boolean isApptExist(Appointment appt);     
 }

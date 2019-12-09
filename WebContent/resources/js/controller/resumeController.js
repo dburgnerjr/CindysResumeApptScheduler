@@ -11,8 +11,8 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
     fetchAllAppts();
  
     function fetchAllAppts() {
-        resumeService.fetchAllAppts().then(function(d) {
-                self.appointments = d;
+        resumeService.fetchAllAppts().then(function(appts) {
+                self.appointments = appts;
             }, function(errResponse) {
                 console.error('Error while fetching Appointments');
             }
@@ -45,17 +45,15 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
     	var left = 0;
     	var right = self.appointments.length - 1;
     	while (left <= right) {
-    		const mid = left + Math.floor((right - left) / 2);
+        	const mid = left + Math.floor((right - left) / 2);
     		if (self.appointments[mid].id === id) {
-                self.appointment = angular.copy(self.appointments[i]);
+                self.appointment = angular.copy(self.appointments[mid]);
                 self.appointment.date = new Date(self.appointment.date);
-                break;
     		}
     		if (self.appointments[mid].id < id)
     			left = mid + 1;
     		else
     			right = mid - 1;
-    		
     	}
     }
 }]);
