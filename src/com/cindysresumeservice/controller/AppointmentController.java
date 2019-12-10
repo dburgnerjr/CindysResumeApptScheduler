@@ -40,18 +40,18 @@ public class AppointmentController {
 	public ModelAndView sendAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment) {
 		ModelAndView mavView = new ModelAndView();
 		
-		String dateAppointment = appointment.getDate();
-		
-		try {
-			// when the controller receives the date string, it is in the yyyy-MM-dd'T'HH:mm format
-			// this section sets it to the MM/dd/yyyy h:mm a format
-			Date dtDateOld = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(dateAppointment);
-			DateFormat dfDateTgt = new SimpleDateFormat("MM/dd/yyyy h:mm a");
-			appointment.setDate(dfDateTgt.format(dtDateOld));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		Date dateAppointment = appointment.getDate();
+//		
+//		try {
+//			// when the controller receives the date string, it is in the yyyy-MM-dd'T'HH:mm format
+//			// this section sets it to the MM/dd/yyyy h:mm a format
+//			Date dtDateOld = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(dateAppointment);
+//			DateFormat dfDateTgt = new SimpleDateFormat("MM/dd/yyyy h:mm a");
+//			appointment.setDate(dfDateTgt.format(dtDateOld));
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		mavView.addObject("name", appointment.getName());
 		mavView.addObject("date", appointment.getDate());

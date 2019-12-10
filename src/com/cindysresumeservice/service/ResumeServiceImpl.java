@@ -3,6 +3,7 @@ package com.cindysresumeservice.service;
 import com.cindysresumeservice.model.Appointment;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -21,9 +22,9 @@ public class ResumeServiceImpl implements ResumeService {
     }
      
     private static List<Appointment> populateDummyAppointments() {
-		appointments.add(new Appointment(counter.incrementAndGet(), "Sam", "11/12/2019 1:00 PM", "sam@abc.com", ""));
-		appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", "11/12/2019 2:00 PM", "tomy@abc.com", ""));
-		appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", "11/12/2019 3:00 PM", "kelly@abc.com", ""));
+		appointments.add(new Appointment(counter.incrementAndGet(), "Sam", new Date("11/12/2019 1:00 PM"), "sam@abc.com", ""));
+		appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", new Date("11/12/2019 2:00 PM"), "tomy@abc.com", ""));
+		appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", new Date("11/12/2019 3:00 PM"), "kelly@abc.com", ""));
 		return appointments;
     }
 
