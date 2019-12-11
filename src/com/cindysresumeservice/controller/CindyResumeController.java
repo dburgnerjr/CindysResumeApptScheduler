@@ -55,12 +55,8 @@ public class CindyResumeController {
 
 	@RequestMapping(value = "/appointments/appointment", method = RequestMethod.POST)
 	public ResponseEntity<Void> createAppointment(@RequestBody Appointment appt) {
-		if (resumeService.isApptExist(appt)) {
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-		} else {
-			resumeService.saveAppt(appt);
-			return new ResponseEntity<Void>(HttpStatus.CREATED);
-		}
+		resumeService.saveAppt(appt);
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
 	// ------------------- Update a Appointment

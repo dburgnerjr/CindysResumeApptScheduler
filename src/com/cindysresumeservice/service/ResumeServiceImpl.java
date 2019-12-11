@@ -3,11 +3,11 @@ package com.cindysresumeservice.service;
 import com.cindysresumeservice.model.Appointment;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Service;
    
 @Service
@@ -22,9 +22,9 @@ public class ResumeServiceImpl implements ResumeService {
     }
      
     private static List<Appointment> populateDummyAppointments() {
-		appointments.add(new Appointment(counter.incrementAndGet(), "Sam", new Date("11/12/2019 1:00 PM"), "sam@abc.com", ""));
-		appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", new Date("11/12/2019 2:00 PM"), "tomy@abc.com", ""));
-		appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", new Date("11/12/2019 3:00 PM"), "kelly@abc.com", ""));
+		appointments.add(new Appointment(counter.incrementAndGet(), "Sam", new LocalDateTime(2019, 11, 12, 13, 0), "sam@abc.com", ""));
+		appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", new LocalDateTime(2019, 11, 12, 14, 0), "tomy@abc.com", ""));
+		appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", new LocalDateTime(2019, 11, 12, 15, 0), "kelly@abc.com", ""));
 		return appointments;
     }
 

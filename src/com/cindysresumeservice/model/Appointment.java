@@ -1,23 +1,40 @@
 package com.cindysresumeservice.model;
-
-import java.util.Date;
-
+ 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+ 
+import org.hibernate.annotations.Type;
+import org.joda.time.LocalDateTime;
+ 
+@Entity
+@Table(name="appointment")
 public class Appointment {
 	 
-    private Long id;
-     
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+    @Column(name = "name", nullable = false)
     private String name;
      
-    private Date date;
+    @Column(name = "date", nullable = false)
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+    private LocalDateTime date;
 
+    @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name = "comments")
     private String comments;
      
     public Appointment() {
     }
     
-    public Appointment(Long id, String name, Date date, String email, String comments) {
+    public Appointment(Long id, String name, LocalDateTime date, String email, String comments) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -41,11 +58,11 @@ public class Appointment {
         this.name = name;
     }
  
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
  
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
