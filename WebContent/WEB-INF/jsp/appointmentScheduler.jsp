@@ -10,6 +10,12 @@
 <body ng-app="myApp">
 	<div class="generic-container" ng-controller="resumeController as ctrl">
 		<div class="panel panel-default">
+			<div class="row">
+				<button class="tablink" onclick="openSubmission('home')">Home</button>
+				<button class="tablink" onclick="openSubmission('synchronous')">Synchronous Submission</button>
+			</div>
+		</div>
+		<div class="panel panel-default">
 			<div class="panel-heading">
 				<span class="lead">Resume Appointment Schedule</span>
 			</div>
@@ -39,12 +45,6 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>
-		</div>
-		<div class="panel panel-default">
-			<div class="row">
-				<button class="tablink" onclick="openSubmission('synchronous')">Synchronous Submission</button>
-				<button class="tablink" onclick="openSubmission('home')">Home</button>
 			</div>
 		</div>
 		<div class="panel panel-default">

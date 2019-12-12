@@ -8,13 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cindysresumeservice.manager.ResumeManager;
+//import com.cindysresumeservice.manager.ResumeManager;
 import com.cindysresumeservice.model.Appointment;
+import com.cindysresumeservice.service.ResumeService;
 
 @Controller
 public class AppointmentController {
 	@Autowired
-	private ResumeManager resumeManager;
+	private ResumeService resumeService;
+	//private ResumeManager resumeManager;
 
 	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public String getIndexPage() {
@@ -28,7 +30,7 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
-		return new ModelAndView("appointmentScheduler", "appointments", resumeManager.findAllAppts());
+		return new ModelAndView("appointmentScheduler", "appointments", resumeService.findAllAppts());
 	}
 
 	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
@@ -40,7 +42,7 @@ public class AppointmentController {
 		mavView.addObject("email", appointment.getEmail());
 		mavView.addObject("comments", appointment.getComments());
 		
-		resumeManager.saveAppt(appointment);
+		resumeService.saveAppt(appointment);
         mavView.setViewName("appointmentConfirmation");
         
         return mavView;

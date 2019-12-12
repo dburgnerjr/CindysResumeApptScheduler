@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
+<html>
 <head>
 <title>Schedule a New Appointment</title>
 <link href="resources/css/app.css" rel="stylesheet" />

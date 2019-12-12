@@ -10,31 +10,31 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Type;
 import org.joda.time.LocalDateTime;
  
-@Entity
-@Table(name="appointment")
+//@Entity
+//@Table(name="appointment")
 public class Appointment {
 	 
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-    @Column(name = "name", nullable = false)
+//    @Column(name = "name", nullable = false)
     private String name;
      
-    @Column(name = "date", nullable = false)
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-    private LocalDateTime date;
+//    @Column(name = "date", nullable = false)
+//    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+    private String date;
 
-    @Column(name = "email", nullable = false)
+//    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "comments")
+//    @Column(name = "comments")
     private String comments;
      
     public Appointment() {
     }
     
-    public Appointment(Long id, String name, LocalDateTime date, String email, String comments) {
+    public Appointment(Long id, String name, String date, String email, String comments) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -58,11 +58,11 @@ public class Appointment {
         this.name = name;
     }
  
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
  
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

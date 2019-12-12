@@ -22,9 +22,9 @@ public class ResumeServiceImpl implements ResumeService {
     }
      
     private static List<Appointment> populateDummyAppointments() {
-		appointments.add(new Appointment(counter.incrementAndGet(), "Sam", new LocalDateTime(2019, 11, 12, 13, 0), "sam@abc.com", ""));
-		appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", new LocalDateTime(2019, 11, 12, 14, 0), "tomy@abc.com", ""));
-		appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", new LocalDateTime(2019, 11, 12, 15, 0), "kelly@abc.com", ""));
+		appointments.add(new Appointment(counter.incrementAndGet(), "Sam", "11/12/2019 1:00 PM", "sam@abc.com", "")); /* new LocalDateTime(2019, 11, 12, 13, 0), */
+		appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", "11/12/2019 2:00 PM", /* new LocalDateTime(2019, 11, 12, 14, 0), */ "tomy@abc.com", ""));
+		appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", "11/12/2019 3:00 PM", /* new LocalDateTime(2019, 11, 12, 15, 0), */ "kelly@abc.com", ""));
 		return appointments;
     }
 
