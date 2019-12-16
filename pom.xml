@@ -14,10 +14,10 @@
 		<javaxservlet.version>3.1.0</javaxservlet.version>
 		<jstl.version>1.2</jstl.version>
 		<taglibs.version>1.2.5</taglibs.version>
-		<hibernate.version>5.3.7.Final</hibernate.version>
+		<hibernate.version>5.1.0.Final</hibernate.version>
 		<mysql.connector.version>8.0.13</mysql.connector.version>
 		<joda-time.version>2.3</joda-time.version>
-		<jadira.usertype.version>3.0.0.CR1</jadira.usertype.version>
+		<jadira.usertype.version>5.0.0.GA</jadira.usertype.version>
 	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -48,11 +48,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -65,35 +65,35 @@
 			<version>${jstl.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jacksoncore.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard</artifactId>
-            <version>${taglibs.version}</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-        	<groupId>mysql</groupId>
-        	<artifactId>mysql-connector-java</artifactId>
-        	<version>${mysql.connector.version}</version>
-        </dependency>
-        <dependency>
-        	<groupId>org.hibernate</groupId>
-        	<artifactId>hibernate-core</artifactId>
-        	<version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${joda-time.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jadira.usertype</groupId>
-            <artifactId>usertype.core</artifactId>
-            <version>${jadira.usertype.version}</version>
-        </dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jacksoncore.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard</artifactId>
+			<version>${taglibs.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.core</artifactId>
+			<version>${jadira.usertype.version}</version>
+		</dependency>
 	</dependencies>
 </project>
