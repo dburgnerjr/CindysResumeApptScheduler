@@ -10,7 +10,8 @@ resumeService.$inject = ['$http'];
     var factory = {
     	fetchAllAppts: fetchAllAppts,
         createAppointment: createAppointment,
-        updateAppointment: updateAppointment
+        updateAppointment: updateAppointment,
+        deleteAppointment: deleteAppointment
     };
  
     return factory;
@@ -28,4 +29,8 @@ resumeService.$inject = ['$http'];
     function updateAppointment(appointment, id) {
         return $http.put(REST_SERVICE_URI + 'appointment/' + id, appointment);
     } 
+    
+    function deleteAppointment(id) {
+    	return $http.delete(REST_SERVICE_URI  + 'appointment/' + id);
+    }
 };

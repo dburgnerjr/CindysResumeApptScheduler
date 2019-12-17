@@ -7,6 +7,8 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
  
     self.submit = submit;
     self.edit = edit;
+    self.remove = remove;
+    self.reset = reset;
  
     fetchAllAppts();
  
@@ -33,12 +35,20 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
         );
     }
  
+    function deleteAppointment(id) {
+    	resumeService.deleteAppointment(id).then(fetchAllAppts, function(errResponse) {
+                console.error('Error while deleting Appointment');
+            }
+        );
+    }
+    
     function submit() {
         if (self.appointment.id === null) {
             createAppointment(self.appointment);
         } else {
             updateAppointment(self.appointment, self.appointment.id);
         }
+        reset();
     }
  
     function edit(id) {
@@ -55,5 +65,19 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
     		else
     			right = mid - 1;
     	}
+    }
+    
+    function remove(id) {
+        if (self.appointment.id === id) { //clean form if the Appointment to be deleted is shown there.
+            reset();
+        }
+        deleteAppointment(id);
+    }
+ 
+ 
+    function reset() {
+    	var frm = document.getElementsByName('myForm')[0];
+  	    frm.reset();  // Reset all form data
+        return false; // Prevent page refresh 
     }
 }]);

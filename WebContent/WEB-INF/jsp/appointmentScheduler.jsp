@@ -41,6 +41,8 @@
 							<td>
 								<button type="button" ng-click="ctrl.edit(appt.id)"
 									class="btn btn-success custom-width">Edit</button>
+								<button type="button" ng-click="ctrl.remove(appt.id)"
+									class="btn btn-success custom-width">Remove</button>
 							</td>
 						</tr>
 					</tbody>
@@ -94,6 +96,7 @@
 					<div class="row">
 						<div class="form-actions floatLeft">
 							<input type="submit" value="{{!ctrl.appointment.id ? 'Add' : 'Update'}}" class="btn btn-success custom-width" ng-disabled="myForm.$invalid">
+<!-- 							<button type="button" ng-click="ctrl.reset()" class="btn btn-success custom-width" ng-disabled="myForm.$pristine">Reset Form</button> -->
 						</div>
 					</div>
 				</form>
