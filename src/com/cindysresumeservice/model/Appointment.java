@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+import org.joda.time.LocalDateTime;
+
 @Entity
 @Table(name = "appointment")
 public class Appointment {
@@ -19,8 +22,8 @@ public class Appointment {
 	private String name;
 
 	@Column(name = "date", nullable = false)
-//	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-	private String date;
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+	private LocalDateTime date;
 
 	@Column(name = "email", nullable = false)
 	private String email;
@@ -31,7 +34,7 @@ public class Appointment {
 	public Appointment() {
 	}
 
-	public Appointment(Long id, String name, String date, String email, String comments) {
+	public Appointment(Long id, String name, LocalDateTime date, String email, String comments) {
 		this.id = id;
 		this.name = name;
 		this.date = date;
@@ -55,11 +58,11 @@ public class Appointment {
 		this.name = name;
 	}
 
-	public String getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

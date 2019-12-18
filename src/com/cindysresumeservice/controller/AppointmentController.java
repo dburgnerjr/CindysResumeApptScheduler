@@ -8,21 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-//import com.cindysresumeservice.manager.ResumeManager;
+import com.cindysresumeservice.manager.ResumeManager;
 import com.cindysresumeservice.model.Appointment;
-import com.cindysresumeservice.service.ResumeService;
 
 @Controller
 public class AppointmentController {
-	@Autowired
-	private ResumeService resumeService;
-	//private ResumeManager resumeManager;
 
-	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+	@Autowired
+	private ResumeManager resumeManager;
+
+	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
 	public String getIndexPage() {
 		return "index";
 	}
-		
+
 	@RequestMapping(value = "/newAppointment", method = RequestMethod.GET)
 	public ModelAndView newAppointment() {
 		return new ModelAndView("newAppointment", "appointment", new Appointment());
@@ -30,21 +29,21 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
-		return new ModelAndView("appointmentScheduler", "appointments", resumeService.findAllAppts());
+		return new ModelAndView("appointmentScheduler", "appointments", resumeManager.findAllAppts());
 	}
 
 	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
 	public ModelAndView sendAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment) {
 		ModelAndView mavView = new ModelAndView();
-				
+
 		mavView.addObject("name", appointment.getName());
 		mavView.addObject("date", appointment.getDate());
 		mavView.addObject("email", appointment.getEmail());
 		mavView.addObject("comments", appointment.getComments());
-		
-		resumeService.saveAppt(appointment);
-        mavView.setViewName("appointmentConfirmation");
-        
-        return mavView;
-    }
+
+		resumeManager.saveAppt(appointment);
+		mavView.setViewName("appointmentConfirmation");
+
+		return mavView;
+	}
 }

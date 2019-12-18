@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.cindysresumeservice.dao.AppointmentDao;
 import com.cindysresumeservice.model.Appointment;
 
-@Service
+@Service("resumeService")
 public class ResumeServiceImpl implements ResumeService {
 
 //	private static final AtomicLong counter = new AtomicLong();
@@ -44,46 +44,24 @@ public class ResumeServiceImpl implements ResumeService {
 
 	@Override
 	public Appointment findById(Long id) {
-//		int nLeft = 0;
-//		int nRight = appointments.size() - 1;
-//		int nMid = (nLeft + nRight) / 2;
-//		Appointment appt = appointments.get(nMid);
-//		while (!appointments.get(nMid).getId().equals(id)) {
-//			if (appointments.get(nMid).getId() < id) {
-//				nLeft = nMid;
-//			} else if (appointments.get(nMid).getId() > id) {
-//				nRight = nMid;
-//			} else {
-//				appt = appointments.get(nMid);
-//			}
-//			nMid = (nLeft + nRight) / 2;
-//		}
-		return null;
+		return dao.findById(id);
 	}
 
 	@Override
 	public void saveAppt(Appointment appt) {
-//		appt.setId(counter.incrementAndGet());
-//		appointments.add(appt);
+		dao.saveAppointment(appt);
 	}
 
 	@Override
 	public void updateAppt(Appointment appt) {
-//		int index = appointments.indexOf(appt);
-//		appointments.set(index, appt);
+		dao.updateAppt(appt);
 	}
 
 	@Override
 	public void deleteApptById(Long id) {
-//		for (Iterator<Appointment> iterator = appointments.iterator(); iterator.hasNext();) {
-//			Appointment appts = iterator.next();
-//			if (appts.getId() == id) {
-//				iterator.remove();
-//			}
-//		}
+		dao.deleteApptById(id);
 	}
 
-	@Override
 	public boolean isApptExist(Appointment appt) {
 		return findById(appt.getId()) != null;
 	}

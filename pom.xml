@@ -9,13 +9,13 @@
 	<name>Cindy's Resume Appointment Scheduler</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springframework.version>5.2.1.RELEASE</springframework.version>
+		<springframework.version>4.3.14.RELEASE</springframework.version>
 		<jacksoncore.version>2.10.1</jacksoncore.version>
 		<javaxservlet.version>3.1.0</javaxservlet.version>
 		<jstl.version>1.2</jstl.version>
 		<taglibs.version>1.2.5</taglibs.version>
 		<hibernate.version>5.1.0.Final</hibernate.version>
-		<mysql.connector.version>8.0.13</mysql.connector.version>
+		<mysql.connector.version>8.0.15</mysql.connector.version>
 		<joda-time.version>2.3</joda-time.version>
 		<jadira.usertype.version>5.0.0.GA</jadira.usertype.version>
 	</properties>
