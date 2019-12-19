@@ -1,14 +1,13 @@
 package com.cindysresumeservice.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Type;
-import org.joda.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointment")
@@ -22,8 +21,10 @@ public class Appointment {
 	private String name;
 
 	@Column(name = "date", nullable = false)
-	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-	private LocalDateTime date;
+//	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+//	@JsonFormat(pattern = "MM/dd/yyyy h:mm a")
+	// private LocalDateTime date;
+	private Date date;
 
 	@Column(name = "email", nullable = false)
 	private String email;
@@ -34,7 +35,7 @@ public class Appointment {
 	public Appointment() {
 	}
 
-	public Appointment(Long id, String name, LocalDateTime date, String email, String comments) {
+	public Appointment(Long id, String name, Date date, String email, String comments) {
 		this.id = id;
 		this.name = name;
 		this.date = date;
@@ -58,11 +59,11 @@ public class Appointment {
 		this.name = name;
 	}
 
-	public LocalDateTime getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

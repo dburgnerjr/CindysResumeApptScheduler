@@ -35,7 +35,7 @@
 						<tr ng-repeat="appt in ctrl.appointments">
 							<td><span ng-bind="appt.id"></span></td>
 							<td><span ng-bind="appt.name"></span></td>
-							<td><span ng-bind="appt.date"></span></td>
+							<td><span ng-bind="appt.date | date:'MM/dd/yyyy h:mm a'"></span></td>
 							<td><span ng-bind="appt.email"></span></td>
 							<td><span ng-bind="appt.comments"></span></td>
 							<td>
@@ -95,7 +95,7 @@
 
 					<div class="row">
 						<div class="form-actions floatLeft">
-							<input type="submit" value="{{!ctrl.appointment.id ? 'Add' : 'Update'}}" class="btn btn-success custom-width" ng-disabled="myForm.$invalid">
+							<input type="submit" id="submit" name="submit" value="{{!ctrl.appointment.id ? 'Add' : 'Update'}}" class="btn btn-success custom-width" ng-disabled="myForm.$invalid">
 <!-- 							<button type="button" ng-click="ctrl.reset()" class="btn btn-success custom-width" ng-disabled="myForm.$pristine">Reset Form</button> -->
 						</div>
 					</div>

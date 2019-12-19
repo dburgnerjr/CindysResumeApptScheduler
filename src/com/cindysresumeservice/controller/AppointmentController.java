@@ -1,5 +1,7 @@
 package com.cindysresumeservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -29,6 +31,10 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
+		List<Appointment> lAppts = resumeManager.findAllAppts();
+		for (Appointment a : lAppts) {
+			System.out.println("Appointment " + a.getId() + ": " + a);
+		}
 		return new ModelAndView("appointmentScheduler", "appointments", resumeManager.findAllAppts());
 	}
 
