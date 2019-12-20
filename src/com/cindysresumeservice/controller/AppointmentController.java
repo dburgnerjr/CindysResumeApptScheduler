@@ -1,13 +1,16 @@
 package com.cindysresumeservice.controller;
 
-import java.util.List;
+import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cindysresumeservice.manager.ResumeManager;
@@ -31,15 +34,22 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
-		List<Appointment> lAppts = resumeManager.findAllAppts();
-		for (Appointment a : lAppts) {
-			System.out.println("Appointment " + a.getId() + ": " + a);
-		}
 		return new ModelAndView("appointmentScheduler", "appointments", resumeManager.findAllAppts());
 	}
 
-	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
+	@RequestMapping(value = "/buildAppointment", method = RequestMethod.POST)
+	public @ResponseBody Appointment buildAppointment(@RequestBody Appointment appt) throws ParseException, IOException {
+		try {
+			System.out.println("appt:  " + appt);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return appt;
+	}
+
+	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST, produces = "application/json")
 	public ModelAndView sendAppointmentConfirmation(@Validated @ModelAttribute("appointment") Appointment appointment) {
+		System.out.println("sendAppointmentConfirmation");
 		ModelAndView mavView = new ModelAndView();
 
 		mavView.addObject("name", appointment.getName());

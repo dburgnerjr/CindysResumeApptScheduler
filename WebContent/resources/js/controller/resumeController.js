@@ -78,6 +78,7 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
     function reset() {
     	var frm = document.getElementsByName('myForm')[0];
   	    frm.reset();  // Reset all form data
+  	    document.getElementById('submit').disabled = true;
         return false; // Prevent page refresh 
     }
 }]);

@@ -48,7 +48,7 @@
 					</div>
 					<div class="row">
 						<div class="form-actions floatLeft">
-							<input type="submit" value="Add" class="btn btn-success custom-width">
+							<input type="button" value="Submit" id="submit" class="btn btn-success custom-width">
 							<input type="button" onclick="goHome()" class="btn btn-success custom-width" value="Home" />
 						</div>
 					</div>
@@ -58,5 +58,29 @@
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="resources/js/location.js"></script>
+	<script>
+		jQuery(document).ready(function($) {
+
+			$("#submit").click(function() {
+				var appointmentData = {};
+				appointmentData["name"] = $("#name").val();
+				appointmentData["date"] = $("#date").val();
+				appointmentData["email"] = $("#email").val();
+				appointmentData["comments"] = $("#comments").val();
+
+				alert(JSON.stringify(appointmentData));
+
+				$.ajax({
+					type : "POST",
+					contentType : "application/json",
+					url : "/CindysResumeApptScheduler/buildAppointment",
+					data : JSON.stringify(appointmentData),
+					dataType : 'json',
+					success : function(data) {
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>

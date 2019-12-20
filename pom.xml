@@ -85,15 +85,5 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>${joda-time.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jadira.usertype</groupId>
-			<artifactId>usertype.core</artifactId>
-			<version>${jadira.usertype.version}</version>
-		</dependency>
 	</dependencies>
 </project>

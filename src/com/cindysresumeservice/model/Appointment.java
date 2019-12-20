@@ -21,9 +21,6 @@ public class Appointment {
 	private String name;
 
 	@Column(name = "date", nullable = false)
-//	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-//	@JsonFormat(pattern = "MM/dd/yyyy h:mm a")
-	// private LocalDateTime date;
 	private Date date;
 
 	@Column(name = "email", nullable = false)
