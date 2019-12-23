@@ -73,10 +73,11 @@
 				$.ajax({
 					type : "POST",
 					contentType : "application/json",
-					url : "/CindysResumeApptScheduler/buildAppointment",
+					url : "/CindysResumeApptScheduler/appointmentConfirmation",
 					data : JSON.stringify(appointmentData),
 					dataType : 'json',
 					success : function(data) {
+						location.assign("appointmentConfirmation");
 					}
 				});
 			});

@@ -16,8 +16,7 @@
 		<taglibs.version>1.2.5</taglibs.version>
 		<hibernate.version>5.1.0.Final</hibernate.version>
 		<mysql.connector.version>8.0.15</mysql.connector.version>
-		<joda-time.version>2.3</joda-time.version>
-		<jadira.usertype.version>5.0.0.GA</jadira.usertype.version>
+		<json.version>20180813</json.version>
 	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -84,6 +83,11 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
 		</dependency>
 	</dependencies>
 </project>
