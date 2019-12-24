@@ -40,7 +40,7 @@ public class AppointmentController {
 		return new ModelAndView("appointmentScheduler", "appointments", resumeManager.findAllAppts());
 	}
 
-	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
 	public ModelAndView sendAppointmentConfirmation(HttpServletRequest req) {
 		System.out.println("sendAppointmentConfirmation");
 		String strJSONArray = "";

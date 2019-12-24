@@ -60,7 +60,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable" for="name">Name <span class="required">*</span></label>
 							<div class="col-md-7">
-								<input type="text" ng-model="ctrl.appointment.name" id="name" name="name" class="name form-control input-sm" placeholder="Enter your name" required ng-minlength="3" />
+								<input type="text" ng-model="ctrl.appointment.name" id="name" name="name" class="name form-control input-sm" placeholder="Enter your name" onchange="this.enable()" required ng-minlength="3" />
 							</div>
 						</div>
 					</div>
@@ -70,7 +70,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable" for="date">Date/Time <span class="required">*</span></label>
 							<div class="col-md-7">
-								<input type="datetime-local" ng-model="ctrl.appointment.date" id="date" name="date" class="date form-control input-sm" placeholder="Enter your Date/Time" required />
+								<input type="datetime-local" ng-model="ctrl.appointment.date" id="date" name="date" class="date form-control input-sm" placeholder="Enter your Date/Time" onchange="this.enable()" required />
 							</div>
 						</div>
 					</div>
@@ -79,7 +79,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable" for="email">Email <span class="required">*</span></label>
 							<div class="col-md-7">
-								<input type="email" ng-model="ctrl.appointment.email" id="email" name="email" class="email form-control input-sm" placeholder="Enter your Email" required />
+								<input type="email" ng-model="ctrl.appointment.email" id="email" name="email" class="email form-control input-sm" placeholder="Enter your Email" onchange="this.enable()" required />
 							</div>
 						</div>
 					</div>
@@ -88,7 +88,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable" for="comments">Comments</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="ctrl.appointment.comments" id="comments" name="comments" class="comments form-control input-sm" placeholder="Enter your comments" />
+								<input type="text" ng-model="ctrl.appointment.comments" id="comments" name="comments" class="comments form-control input-sm" onchange="this.enable()" placeholder="Enter your comments" />
 							</div>
 						</div>
 					</div>

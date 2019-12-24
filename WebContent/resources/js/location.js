@@ -28,3 +28,24 @@ function openSubmission(submission) {
 	else if (submission == "home")
 		goHome();
 }
+
+function submitInfo() {
+	var appointmentData = {};
+	appointmentData["name"] = $("#name").val();
+	appointmentData["date"] = $("#date").val();
+	appointmentData["email"] = $("#email").val();
+	appointmentData["comments"] = $("#comments").val();
+
+	alert(JSON.stringify(appointmentData));
+
+	$.ajax({
+		type : "POST",
+		contentType : "application/json",
+		url : "/CindysResumeApptScheduler/appointmentConfirmation",
+		data : JSON.stringify(appointmentData),
+		dataType : 'json',
+		success : function(data) {
+			//location.assign("appointmentConfirmation");
+		}
+	});
+}

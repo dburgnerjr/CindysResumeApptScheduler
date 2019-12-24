@@ -73,12 +73,16 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
         }
         deleteAppointment(id);
     }
- 
+    
+    function enable() {
+      	document.getElementById('submit').disabled = false;
+    }
  
     function reset() {
     	var frm = document.getElementsByName('myForm')[0];
   	    frm.reset();  // Reset all form data
   	    document.getElementById('submit').disabled = true;
+  	    document.getElementById('submit').value = 'Add';
         return false; // Prevent page refresh 
     }
 }]);
