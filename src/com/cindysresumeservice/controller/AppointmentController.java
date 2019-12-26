@@ -53,7 +53,8 @@ public class AppointmentController {
 				sbBuild.append(strLine);
 			}
 
-			strJSONArray = sbBuild.toString();
+			strJSONArray += sbBuild.toString();
+			System.out.println("strJSONArray:  " + strJSONArray);
 			JSONObject jsonObject = new JSONObject(strJSONArray);
 
 			appt.setName(jsonObject.getString("name"));
@@ -84,7 +85,7 @@ public class AppointmentController {
 		mavView.addObject("email", appt.getEmail());
 		mavView.addObject("comments", appt.getComments());
 
-		resumeManager.saveAppt(appt);
+//		resumeManager.saveAppt(appt);
 		mavView.setViewName("appointmentConfirmation");
 
 		return mavView;

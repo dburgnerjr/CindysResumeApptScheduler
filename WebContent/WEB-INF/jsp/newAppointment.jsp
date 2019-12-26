@@ -13,7 +13,7 @@
 				<span class="lead">Resume Appointment Scheduler Form</span>
 			</div>
 			<div class="formcontainer">	        
-				<form:form method="POST" action="/CindysResumeApptScheduler/appointmentConfirmation" modelAttribute="appointment">
+				<form:form method="POST" name="newApptForm" modelAttribute="appointment">
 					<div class="row">
 						<div class="form-group col-md-12">
 							<form:label class="col-md-2 control-lable" path="name">Name <span class="required">*</span></form:label>
@@ -48,8 +48,8 @@
 					</div>
 					<div class="row">
 						<div class="form-actions floatLeft">
-							<input type="submit" value="Add" class="btn btn-success custom-width">
-							<input type="button" onclick="goHome()" class="btn btn-success custom-width" value="Home" />
+							<input type="submit" onclick="submitInfo()" value="Add" class="btn btn-success custom-width">
+							<input type="button" onclick="goHome()" value="Home" class="btn btn-success custom-width">
 						</div>
 					</div>
 				</form:form>
