@@ -13,7 +13,7 @@
 				<span class="lead">Resume Appointment Scheduler Form</span>
 			</div>
 			<div class="formcontainer">	        
-				<form:form method="POST" name="newApptForm" modelAttribute="appointment">
+				<form:form modelAttribute="appointment">
 					<div class="row">
 						<div class="form-group col-md-12">
 							<form:label class="col-md-2 control-lable" path="name">Name <span class="required">*</span></form:label>

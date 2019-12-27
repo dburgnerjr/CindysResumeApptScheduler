@@ -31,21 +31,32 @@ function openSubmission(submission) {
 
 function submitInfo() {
 	var appointmentData = {};
-	appointmentData["name"] = $("#name").val();
-	appointmentData["date"] = $("#date").val();
-	appointmentData["email"] = $("#email").val();
-	appointmentData["comments"] = $("#comments").val();
+	if (!$("#name").val()) {
+		alert("Please enter the name.");
+	}
+	if (!$("#date").val()) {
+		alert("Please enter the date.");
+	}
+	if (!$("#email").val()) {
+		alert("Please enter the email.");
+	}
+	if ((typeof $("#name").val() != 'undefined' && $("#name").val()) &&
+		(typeof $("#date").val() != 'undefined' && $("#date").val()) &&
+		(typeof $("#email").val() != 'undefined' && $("#email").val())) {
+		appointmentData["name"] = $("#name").val();
+		appointmentData["date"] = $("#date").val();
+		appointmentData["email"] = $("#email").val();
+		appointmentData["comments"] = $("#comments").val();
 
-	alert(JSON.stringify(appointmentData));
+		alert(JSON.stringify(appointmentData));
 
-	$.ajax({
-		type : "POST",
-		contentType : "application/json",
-		url : "/CindysResumeApptScheduler/appointmentConfirmation",
-		data : JSON.stringify(appointmentData),
-		dataType : 'json',
-		success : function(data) {
-			//location.assign("appointmentConfirmation");
-		}
-	});
+		$.post(
+			"/CindysResumeApptScheduler/appointmentConfirmation", 
+			{"data" : JSON.stringify(appointmentData) }, 
+			function(response) {
+				appointmentConfirmation();
+			}, 
+			"json"
+		);		
+	}
 }
