@@ -37,7 +37,7 @@
 							<td><span ng-bind="appt.name"></span></td>
 							<td><span ng-bind="appt.date | date:'MM/dd/yyyy h:mm a'"></span></td>
 							<td><span ng-bind="appt.email"></span></td>
-							<td><span ng-bind="appt.comments"></span></td>
+							<td><span ng-click="ctrl.showComment(appt.id)">Show</span></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(appt.id)"
 									class="btn btn-success custom-width">Edit</button>
@@ -55,7 +55,7 @@
 			</div>
 			<div class="formcontainer">
 				<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
-					<input type="hidden" ng-model="ctrl.appointment.id" />
+					<input type="hidden" id="id" name="id" ng-model="ctrl.appointment.id" />
 					<div class="row">
 						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable" for="name">Name <span class="required">*</span></label>
@@ -84,14 +84,14 @@
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="comments">Comments</label>
-							<div class="col-md-7">
-								<input type="text" ng-model="ctrl.appointment.comments" id="comments" name="comments" class="comments form-control input-sm" onchange="this.enable()" placeholder="Enter your comments" />
-							</div>
-						</div>
-					</div>
+<!-- 					<div class="row"> -->
+<!-- 						<div class="form-group col-md-12"> -->
+<!-- 							<label class="col-md-2 control-lable" for="comments">Comments</label> -->
+<!-- 							<div class="col-md-7"> -->
+<!-- 								<input type="text" ng-model="ctrl.appointment.comments" id="comments" name="comments" class="comments form-control input-sm" onchange="this.enable()" placeholder="Enter your comments" /> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
 					<div class="row">
 						<div class="form-actions floatLeft">

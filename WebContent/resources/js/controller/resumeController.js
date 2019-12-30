@@ -83,6 +83,11 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
   	    frm.reset();  // Reset all form data
   	    document.getElementById('submit').disabled = true;
   	    document.getElementById('submit').value = 'Add';
+  	    self.appointment.id = null;
         return false; // Prevent page refresh 
+    }
+    
+    function showComment(id) {
+    	
     }
 }]);
