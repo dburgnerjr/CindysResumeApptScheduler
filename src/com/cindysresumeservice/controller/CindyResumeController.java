@@ -78,7 +78,6 @@ public class CindyResumeController {
 			currentAppointment.setName(appt.getName());
 			currentAppointment.setDate(appt.getDate());
 			currentAppointment.setEmail(appt.getEmail());
-			currentAppointment.setComments(appt.getComments());
 
 			resumeManager.updateAppt(currentAppointment);
 			return new ResponseEntity<Appointment>(currentAppointment, HttpStatus.OK);

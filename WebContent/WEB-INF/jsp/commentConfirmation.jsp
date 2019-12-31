@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Your Appointment Is Confirmed</title>
+<title>Comment Has Been Updated</title>
 <link href="resources/css/app.css" rel="stylesheet" />
 <link href="resources/css/bootstrap.css" rel="stylesheet" />
 </head>
@@ -10,7 +10,7 @@
 	<div class="generic-container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<span class="lead">Submitted Appointment Information</span>
+				<span class="lead">Comment Has Been Updated</span>
 			</div>
 			<div class="formcontainer">
 				<div class="row">

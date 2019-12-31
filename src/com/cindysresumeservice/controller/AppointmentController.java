@@ -39,7 +39,6 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointmentConfirmation", method = RequestMethod.POST)
 	public ModelAndView sendAppointmentConfirmation(HttpServletRequest req) {
-		System.out.println("sendAppointmentConfirmation");
 		Appointment appt = new Appointment();
 		Date dtDateOld = null;
 		String strDateNew = "";

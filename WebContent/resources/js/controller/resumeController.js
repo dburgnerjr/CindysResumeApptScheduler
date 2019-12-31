@@ -9,6 +9,7 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
     self.edit = edit;
     self.remove = remove;
     self.reset = reset;
+    self.showComment = showComment;
  
     fetchAllAppts();
  
@@ -77,7 +78,11 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
     function enable() {
       	document.getElementById('submit').disabled = false;
     }
- 
+
+    function showComment(id) {
+    	location.assign("newComment/" + id);
+    }
+
     function reset() {
     	var frm = document.getElementsByName('myForm')[0];
   	    frm.reset();  // Reset all form data
@@ -85,9 +90,5 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
   	    document.getElementById('submit').value = 'Add';
   	    self.appointment.id = null;
         return false; // Prevent page refresh 
-    }
-    
-    function showComment(id) {
-    	
-    }
+    }    
 }]);

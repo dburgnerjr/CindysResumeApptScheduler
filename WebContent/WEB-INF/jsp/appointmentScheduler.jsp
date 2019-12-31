@@ -37,7 +37,8 @@
 							<td><span ng-bind="appt.name"></span></td>
 							<td><span ng-bind="appt.date | date:'MM/dd/yyyy h:mm a'"></span></td>
 							<td><span ng-bind="appt.email"></span></td>
-							<td><span ng-click="ctrl.showComment(appt.id)">Show</span></td>
+							<td><button type="button" ng-click="ctrl.showComment(appt.id)"
+									class="btn btn-success custom-width">Show</button></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(appt.id)"
 									class="btn btn-success custom-width">Edit</button>
@@ -84,19 +85,9 @@
 						</div>
 					</div>
 
-<!-- 					<div class="row"> -->
-<!-- 						<div class="form-group col-md-12"> -->
-<!-- 							<label class="col-md-2 control-lable" for="comments">Comments</label> -->
-<!-- 							<div class="col-md-7"> -->
-<!-- 								<input type="text" ng-model="ctrl.appointment.comments" id="comments" name="comments" class="comments form-control input-sm" onchange="this.enable()" placeholder="Enter your comments" /> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-
 					<div class="row">
 						<div class="form-actions floatLeft">
 							<input type="submit" id="submit" name="submit" value="{{!ctrl.appointment.id ? 'Add' : 'Update'}}" class="btn btn-success custom-width" ng-disabled="myForm.$invalid">
-<!-- 							<button type="button" ng-click="ctrl.reset()" class="btn btn-success custom-width" ng-disabled="myForm.$pristine">Reset Form</button> -->
 						</div>
 					</div>
 				</form>
