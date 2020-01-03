@@ -1,9 +1,9 @@
 package com.cindysresumeservice.controller;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,8 +25,8 @@ public class CindyResumeCommentController {
 
 	// -------------------Retrieve Single
 	// Appointment--------------------------------------------------------
-	@RequestMapping(value = "/newComment/{id}", method = RequestMethod.GET)
-	public ModelAndView getAppointmentById(@PathVariable("id") Long id) {
+	@RequestMapping(value = "/updateComment/{id}", method = RequestMethod.GET)
+	public ModelAndView updateComment(@PathVariable("id") Long id) {
 		Appointment appt = resumeManager.findById(id);
 
 		String strDate = "";
@@ -34,7 +34,7 @@ public class CindyResumeCommentController {
 		strDate = dfDateTgt.format(appt.getDate());
 
 		ModelAndView mavView = new ModelAndView();
-		mavView.setViewName("newComment");
+		mavView.setViewName("updateComment");
 
 		mavView.addObject("name", appt.getName());
 		mavView.addObject("date", strDate);
@@ -44,10 +44,10 @@ public class CindyResumeCommentController {
 		return mavView;
 	}
 
-	@RequestMapping(value = "/commentConfirmation", method = RequestMethod.POST)
-	public ModelAndView sendCommentConfirmation(HttpServletRequest req) {
+	@RequestMapping(value = "/submitUpdatedComment", method = RequestMethod.POST)
+	public ModelAndView submitUpdatedComment(HttpServletRequest req) {
 		Appointment appt = new Appointment();
-		Date dtDate = null;
+		LocalDateTime dtDate = null;
 
 		Long lId = Long.valueOf(req.getParameter("id"));
 		String strName = req.getParameter("name");
@@ -56,21 +56,17 @@ public class CindyResumeCommentController {
 		String strComments = req.getParameter("comments");
 
 		ModelAndView mavView = new ModelAndView();
-		mavView.setViewName("commentConfirmation");
+		mavView.setViewName("submitUpdatedComment");
 
-		try {
-			appt.setId(lId);
-			appt.setName(strName);
+		appt.setId(lId);
+		appt.setName(strName);
 
-			dtDate = new SimpleDateFormat("MM/dd/yyyy h:mm a").parse(strDate);
-			appt.setDate(dtDate);
+		DateTimeFormatter dtfFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a");
+		dtDate = LocalDateTime.parse(strDate, dtfFormat);
+		appt.setDate(dtDate);
 
-			appt.setEmail(strEmail);
-			appt.setComments(strComments);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		appt.setEmail(strEmail);
+		appt.setComments(strComments);
 
 		mavView.addObject("name", appt.getName());
 		mavView.addObject("date", strDate);

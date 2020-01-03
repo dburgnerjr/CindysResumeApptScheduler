@@ -11,29 +11,6 @@ import com.cindysresumeservice.model.Appointment;
 @Service("resumeService")
 public class ResumeServiceImpl implements ResumeService {
 
-//	private static final AtomicLong counter = new AtomicLong();
-//
-//	private static List<Appointment> appointments = new ArrayList<>();
-//
-//	static {
-//		appointments = populateDummyAppointments();
-//	}
-//
-//	private static List<Appointment> populateDummyAppointments() {
-//		appointments.add(new Appointment(counter.incrementAndGet(), "Sam", "11/12/2019 1:00 PM", "sam@abc.com",
-//				"")); /* new LocalDateTime(2019, 11, 12, 13, 0), */
-//		appointments.add(new Appointment(counter.incrementAndGet(), "Tomy", "11/12/2019 2:00 PM",
-//				/* new LocalDateTime(2019, 11, 12, 14, 0), */ "tomy@abc.com", ""));
-//		appointments.add(new Appointment(counter.incrementAndGet(), "Kelly", "11/12/2019 3:00 PM",
-//				/* new LocalDateTime(2019, 11, 12, 15, 0), */ "kelly@abc.com", ""));
-//		return appointments;
-//	}
-//
-//	@Override
-//	public List<Appointment> findAllAppts() {
-//		return appointments;
-//	}
-
 	@Autowired
 	private AppointmentDao dao;
 
@@ -48,20 +25,21 @@ public class ResumeServiceImpl implements ResumeService {
 	}
 
 	@Override
-	public void saveAppt(Appointment appt) {
-		dao.saveAppointment(appt);
+	public boolean saveAppt(Appointment appt) {
+		return dao.saveAppointment(appt);
 	}
 
 	@Override
-	public void updateAppt(Appointment appt) {
-		dao.updateAppt(appt);
+	public boolean updateAppt(Appointment appt) {
+		return dao.updateAppt(appt);
 	}
 
 	@Override
-	public void deleteApptById(Long id) {
-		dao.deleteApptById(id);
+	public Integer deleteApptById(Long id) {
+		return dao.deleteApptById(id);
 	}
 
+	@Override
 	public boolean isApptExist(Appointment appt) {
 		return findById(appt.getId()) != null;
 	}

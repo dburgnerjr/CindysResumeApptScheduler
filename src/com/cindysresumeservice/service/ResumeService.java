@@ -8,11 +8,11 @@ public interface ResumeService {
 
 	Appointment findById(Long id);
 
-	void saveAppt(Appointment appt);
+	boolean saveAppt(Appointment appt);
 
-	void updateAppt(Appointment appt);
+	boolean updateAppt(Appointment appt);
 
-	void deleteApptById(Long id);
+	Integer deleteApptById(Long id);
 
 	List<Appointment> findAllAppts();
 

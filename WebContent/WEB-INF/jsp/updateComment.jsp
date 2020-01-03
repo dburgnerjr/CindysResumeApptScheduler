@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Add A Comment</title>
+<title>Update Appointment with a Comment</title>
 <link href="../resources/css/app.css" rel="stylesheet" />
 <link href="../resources/css/bootstrap.css" rel="stylesheet" />
 </head>
@@ -9,10 +9,10 @@
 	<div class="generic-container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<span class="lead">New Comment Form</span>
+				<span class="lead">Update Appointment with a Comment</span>
 			</div>
 			<div class="formcontainer">
-				<form method="POST" action="/CindysResumeApptScheduler/commentConfirmation" modelAttribute="appointment">
+				<form method="POST" action="/CindysResumeApptScheduler/submitUpdatedComment">
 					<input type="hidden" id="id" name="id" value="${id}" />
 					<div class="row">
 						<div class="form-group col-md-12">
@@ -51,8 +51,7 @@
 					</div>
 					<div class="row">
 						<div class="form-actions floatLeft">
-							<input type="submit" value="Add" class="btn btn-success custom-width">
-							<input type="button" onclick="goHome()" value="Home" class="btn btn-success custom-width">
+							<input type="submit" value="Submit" class="btn btn-success custom-width">
 						</div>
 					</div>
 				</form>

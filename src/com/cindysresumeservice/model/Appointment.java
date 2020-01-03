@@ -1,6 +1,6 @@
 package com.cindysresumeservice.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "appointment")
@@ -21,7 +23,8 @@ public class Appointment {
 	private String name;
 
 	@Column(name = "date", nullable = false)
-	private Date date;
+	@JsonFormat(pattern = "MM/dd/yyyy h:mm a")
+	private LocalDateTime date;
 
 	@Column(name = "email", nullable = false)
 	private String email;
@@ -32,7 +35,7 @@ public class Appointment {
 	public Appointment() {
 	}
 
-	public Appointment(Long id, String name, Date date, String email, String comments) {
+	public Appointment(Long id, String name, LocalDateTime date, String email, String comments) {
 		this.id = id;
 		this.name = name;
 		this.date = date;
@@ -56,11 +59,11 @@ public class Appointment {
 		this.name = name;
 	}
 
-	public Date getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

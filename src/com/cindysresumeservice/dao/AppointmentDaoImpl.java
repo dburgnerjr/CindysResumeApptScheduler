@@ -25,8 +25,13 @@ public class AppointmentDaoImpl implements AppointmentDao {
 	}
 
 	@Override
-	public void saveAppointment(Appointment appt) {
+	public boolean saveAppointment(Appointment appt) {
 		getSession().persist(appt);
+		if (isApptExist(appt)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
@@ -37,9 +42,10 @@ public class AppointmentDaoImpl implements AppointmentDao {
 	}
 
 	@Override
-	public void deleteApptById(Long id) {
+	public Integer deleteApptById(Long id) {
 		Query query = getSession().createSQLQuery("delete from Appointment where id = :id");
-		query.setParameter("id", id).executeUpdate();
+		query.setParameter("id", id);
+		return query.executeUpdate();
 	}
 
 	@Override
@@ -50,8 +56,25 @@ public class AppointmentDaoImpl implements AppointmentDao {
 	}
 
 	@Override
-	public void updateAppt(Appointment appt) {
-		getSession().update(appt);
+	public Appointment findByName(String strN) {
+		Criteria criteria = getSession().createCriteria(Appointment.class);
+		criteria.add(Restrictions.eq("name", strN));
+		return (Appointment) criteria.uniqueResult();
 	}
 
+	@Override
+	public boolean updateAppt(Appointment appt) {
+		getSession().update(appt);
+		Appointment apptUpd = findById(appt.getId());
+		if (apptUpd == appt) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean isApptExist(Appointment appt) {
+		return findByName(appt.getName()) != null;
+	}
 }

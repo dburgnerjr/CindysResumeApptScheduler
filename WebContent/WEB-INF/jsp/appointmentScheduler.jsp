@@ -11,8 +11,7 @@
 	<div class="generic-container" ng-controller="resumeController as ctrl">
 		<div class="panel panel-default">
 			<div class="row">
-				<button class="tablink" onclick="openSubmission('home')">Home</button>
-				<button class="tablink" onclick="openSubmission('synchronous')">Synchronous Submission</button>
+				<button class="tablink" onclick="goHome()">Home</button>
 			</div>
 		</div>
 		<div class="panel panel-default">

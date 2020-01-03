@@ -19,23 +19,23 @@ public class ResumeManagerImpl implements ResumeManager {
 	}
 
 	@Override
-	public void saveAppt(Appointment appt) {
-		resumeService.saveAppt(appt);
+	public boolean saveAppt(Appointment appt) {
+		return resumeService.saveAppt(appt);
 	}
 
 	@Override
-	public void updateAppt(Appointment appt) {
-		resumeService.updateAppt(appt);
+	public boolean updateAppt(Appointment appt) {
+		return resumeService.updateAppt(appt);
 	}
 
 	@Override
-	public void deleteApptById(Long id) {
-		resumeService.deleteApptById(id);
+	public Integer deleteApptById(Long id) {
+		return resumeService.deleteApptById(id);
 	}
 
 	@Override
 	public boolean isApptExist(Appointment appt) {
-		return findById(appt.getId()) != null;
+		return resumeService.isApptExist(appt);
 	}
 
 	@Override
