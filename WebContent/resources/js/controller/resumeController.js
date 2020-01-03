@@ -80,7 +80,7 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
     }
 
     function showComment(id) {
-    	location.assign("newComment/" + id);
+    	location.assign("updateComment/" + id);
     }
 
     function reset() {

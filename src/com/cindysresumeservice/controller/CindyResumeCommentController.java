@@ -1,9 +1,9 @@
 package com.cindysresumeservice.controller;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -47,7 +47,7 @@ public class CindyResumeCommentController {
 	@RequestMapping(value = "/submitUpdatedComment", method = RequestMethod.POST)
 	public ModelAndView submitUpdatedComment(HttpServletRequest req) {
 		Appointment appt = new Appointment();
-		LocalDateTime dtDate = null;
+		Date dtDate = null;
 
 		Long lId = Long.valueOf(req.getParameter("id"));
 		String strName = req.getParameter("name");
@@ -61,9 +61,12 @@ public class CindyResumeCommentController {
 		appt.setId(lId);
 		appt.setName(strName);
 
-		DateTimeFormatter dtfFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a");
-		dtDate = LocalDateTime.parse(strDate, dtfFormat);
-		appt.setDate(dtDate);
+		try {
+			dtDate = new SimpleDateFormat("MM/dd/yyyy h:mm a").parse(strDate);
+			appt.setDate(dtDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 
 		appt.setEmail(strEmail);
 		appt.setComments(strComments);
