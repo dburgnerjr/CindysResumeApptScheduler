@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cindysresumeservice.entity.Appointment;
 import com.cindysresumeservice.manager.ResumeManager;
-import com.cindysresumeservice.model.Appointment;
 
 @Controller
 public class CindyResumeCommentController {

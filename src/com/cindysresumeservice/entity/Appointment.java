@@ -1,4 +1,4 @@
-package com.cindysresumeservice.model;
+package com.cindysresumeservice.entity;
 
 import java.util.Date;
 
@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Appointment {
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
@@ -23,7 +24,7 @@ public class Appointment {
 	private String name;
 
 	@Column(name = "date", nullable = false)
-	@JsonFormat(pattern = "MM/dd/yyyy h:mm a", timezone = "America/Chicago")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private Date date;
 
 	@Column(name = "email", nullable = false)

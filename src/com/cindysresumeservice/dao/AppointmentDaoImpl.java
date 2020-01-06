@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cindysresumeservice.model.Appointment;
+import com.cindysresumeservice.entity.Appointment;
 
 @Repository("appointmentDao")
 @Transactional
@@ -26,6 +26,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
 
 	@Override
 	public boolean saveAppointment(Appointment appt) {
+		System.out.println("Appointment dao save");
 		getSession().persist(appt);
 		if (isApptExist(appt)) {
 			return true;
@@ -64,6 +65,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
 
 	@Override
 	public boolean updateAppt(Appointment appt) {
+		System.out.println("Appointment dao update");
 		getSession().update(appt);
 		Appointment apptUpd = findById(appt.getId());
 		if (apptUpd == appt) {

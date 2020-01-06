@@ -2,7 +2,7 @@ package com.cindysresumeservice.manager;
 
 import java.util.List;
 
-import com.cindysresumeservice.model.Appointment;
+import com.cindysresumeservice.entity.Appointment;
 
 public interface ResumeManager {
 	Appointment findById(Long id);

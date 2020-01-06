@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cindysresumeservice.dao.AppointmentDao;
-import com.cindysresumeservice.model.Appointment;
+import com.cindysresumeservice.entity.Appointment;
 
 @Service("resumeService")
 public class ResumeServiceImpl implements ResumeService {
@@ -26,11 +26,13 @@ public class ResumeServiceImpl implements ResumeService {
 
 	@Override
 	public boolean saveAppt(Appointment appt) {
+		System.out.println("Resume service save");
 		return dao.saveAppointment(appt);
 	}
 
 	@Override
 	public boolean updateAppt(Appointment appt) {
+		System.out.println("Resume service update");
 		return dao.updateAppt(appt);
 	}
 

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cindysresumeservice.model.Appointment;
+import com.cindysresumeservice.entity.Appointment;
 import com.cindysresumeservice.service.ResumeService;
 
 @Service
@@ -20,11 +20,13 @@ public class ResumeManagerImpl implements ResumeManager {
 
 	@Override
 	public boolean saveAppt(Appointment appt) {
+		System.out.println("Resume manager save");
 		return resumeService.saveAppt(appt);
 	}
 
 	@Override
 	public boolean updateAppt(Appointment appt) {
+		System.out.println("Resume manager update");
 		return resumeService.updateAppt(appt);
 	}
 

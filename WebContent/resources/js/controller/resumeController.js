@@ -9,6 +9,7 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
     self.edit = edit;
     self.remove = remove;
     self.reset = reset;
+    self.enable = enable;
     self.showComment = showComment;
  
     fetchAllAppts();
@@ -52,20 +53,9 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
         reset();
     }
  
-    function edit(id) {
-    	var left = 0;
-    	var right = self.appointments.length - 1;
-    	while (left <= right) {
-        	const mid = left + Math.floor((right - left) / 2);
-    		if (self.appointments[mid].id === id) {
-                self.appointment = angular.copy(self.appointments[mid]);
-                self.appointment.date = new Date(self.appointment.date);
-    		}
-    		if (self.appointments[mid].id < id)
-    			left = mid + 1;
-    		else
-    			right = mid - 1;
-    	}
+    function edit(appt) {
+    	self.appointment = angular.copy(appt);
+    	self.appointment.date = new Date(self.appointment.date);
     }
     
     function remove(id) {

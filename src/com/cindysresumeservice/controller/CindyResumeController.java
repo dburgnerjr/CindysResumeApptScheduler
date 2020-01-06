@@ -6,22 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cindysresumeservice.entity.Appointment;
 import com.cindysresumeservice.manager.ResumeManager;
-import com.cindysresumeservice.model.Appointment;
 
 /*
  * author: Daniel Burgner
  * 
  */
 
-@RestController
+@Controller
 public class CindyResumeController {
 
 	@Autowired
@@ -34,6 +35,7 @@ public class CindyResumeController {
 
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
+		List<Appointment> apptList = resumeManager.findAllAppts();
 		return new ModelAndView("appointmentScheduler", "appointments", resumeManager.findAllAppts());
 	}
 
@@ -67,6 +69,9 @@ public class CindyResumeController {
 
 	@RequestMapping(value = "/appointments/appointment", method = RequestMethod.POST)
 	public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appt) {
+		System.out.println("createAppointment CindyResumeController");
+		System.out.println("appt date: " + appt.getDate());
+
 		if (resumeManager.isApptExist(appt)) {
 			return new ResponseEntity<Appointment>(HttpStatus.CONFLICT);
 		} else if (resumeManager.saveAppt(appt)) {
@@ -81,7 +86,9 @@ public class CindyResumeController {
 
 	@RequestMapping(value = "/appointment/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Appointment> updateAppointment(@PathVariable("id") Long id, @RequestBody Appointment appt) {
+		System.out.println("updateAppointment CindyResumeController");
 		Appointment currentAppointment = resumeManager.findById(id);
+		System.out.println("appt date: " + appt.getDate());
 
 		if (currentAppointment == null) {
 			return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
@@ -102,11 +109,10 @@ public class CindyResumeController {
 
 	@RequestMapping(value = "/appointment/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Appointment> deleteAppointment(@PathVariable("id") Long id) {
-		if (resumeManager.deleteApptById(id) == 0)
-			return new ResponseEntity<Appointment>(HttpStatus.NO_CONTENT);
-		else if (resumeManager.deleteApptById(id) == 1)
+		Integer nRowCount = resumeManager.deleteApptById(id);
+		if (nRowCount == 1)
 			return new ResponseEntity<Appointment>(HttpStatus.OK);
 		else
-			return new ResponseEntity<Appointment>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);
 	}
 }

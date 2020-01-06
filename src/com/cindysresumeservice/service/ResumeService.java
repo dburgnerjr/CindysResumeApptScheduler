@@ -2,7 +2,7 @@ package com.cindysresumeservice.service;
 
 import java.util.List;
 
-import com.cindysresumeservice.model.Appointment;
+import com.cindysresumeservice.entity.Appointment;
 
 public interface ResumeService {
 

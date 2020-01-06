@@ -2,7 +2,7 @@ package com.cindysresumeservice.dao;
 
 import java.util.List;
 
-import com.cindysresumeservice.model.Appointment;
+import com.cindysresumeservice.entity.Appointment;
 
 public interface AppointmentDao {
 	boolean saveAppointment(Appointment appt);
