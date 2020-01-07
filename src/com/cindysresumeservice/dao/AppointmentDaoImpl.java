@@ -26,7 +26,6 @@ public class AppointmentDaoImpl implements AppointmentDao {
 
 	@Override
 	public boolean saveAppointment(Appointment appt) {
-		System.out.println("Appointment dao save");
 		getSession().persist(appt);
 		if (isApptExist(appt)) {
 			return true;
@@ -39,6 +38,7 @@ public class AppointmentDaoImpl implements AppointmentDao {
 	@SuppressWarnings("unchecked")
 	public List<Appointment> findAllAppts() {
 		Criteria criteria = getSession().createCriteria(Appointment.class);
+		List<Appointment> apptList = criteria.list();
 		return criteria.list();
 	}
 
@@ -65,7 +65,6 @@ public class AppointmentDaoImpl implements AppointmentDao {
 
 	@Override
 	public boolean updateAppt(Appointment appt) {
-		System.out.println("Appointment dao update");
 		getSession().update(appt);
 		Appointment apptUpd = findById(appt.getId());
 		if (apptUpd == appt) {

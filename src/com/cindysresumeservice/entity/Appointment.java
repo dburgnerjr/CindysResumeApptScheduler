@@ -24,7 +24,7 @@ public class Appointment {
 	private String name;
 
 	@Column(name = "date", nullable = false)
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy", timezone = "CST")
 	private Date date;
 
 	@Column(name = "email", nullable = false)

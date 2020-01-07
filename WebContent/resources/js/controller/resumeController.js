@@ -55,7 +55,6 @@ angular.module('myApp').controller('resumeController', ['resumeService', functio
  
     function edit(appt) {
     	self.appointment = angular.copy(appt);
-    	self.appointment.date = new Date(self.appointment.date);
     }
     
     function remove(id) {

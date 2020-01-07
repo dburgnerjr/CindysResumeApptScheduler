@@ -29,13 +29,12 @@ public class CindyResumeController {
 	private ResumeManager resumeManager; // Service which will do all data retrieval/manipulation work
 
 	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-	public ModelAndView getIndexPage() {
-		return new ModelAndView("index");
+	public String getHomePage() {
+		return "index";
 	}
 
 	@RequestMapping(value = "/appointmentScheduler", method = RequestMethod.GET)
 	public ModelAndView getAppointmentScheduler() {
-		List<Appointment> apptList = resumeManager.findAllAppts();
 		return new ModelAndView("appointmentScheduler", "appointments", resumeManager.findAllAppts());
 	}
 
@@ -69,9 +68,6 @@ public class CindyResumeController {
 
 	@RequestMapping(value = "/appointments/appointment", method = RequestMethod.POST)
 	public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appt) {
-		System.out.println("createAppointment CindyResumeController");
-		System.out.println("appt date: " + appt.getDate());
-
 		if (resumeManager.isApptExist(appt)) {
 			return new ResponseEntity<Appointment>(HttpStatus.CONFLICT);
 		} else if (resumeManager.saveAppt(appt)) {
@@ -86,9 +82,7 @@ public class CindyResumeController {
 
 	@RequestMapping(value = "/appointment/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Appointment> updateAppointment(@PathVariable("id") Long id, @RequestBody Appointment appt) {
-		System.out.println("updateAppointment CindyResumeController");
 		Appointment currentAppointment = resumeManager.findById(id);
-		System.out.println("appt date: " + appt.getDate());
 
 		if (currentAppointment == null) {
 			return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);

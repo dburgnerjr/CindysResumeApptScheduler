@@ -24,7 +24,7 @@
 						<tr>
 							<th>ID</th>
 							<th>Name</th>
-							<th>Date/Time</th>
+							<th>Date</th>
 							<th>Email</th>
 							<th>Comments</th>
 							<th width="20%"></th>
@@ -34,7 +34,7 @@
 						<tr ng-repeat="appt in ctrl.appointments">
 							<td><span ng-bind="appt.id"></span></td>
 							<td><span ng-bind="appt.name"></span></td>
-							<td><span ng-bind="appt.date | date:'MM/dd/yyyy h:mm a'"></span></td>
+							<td><span ng-bind="appt.date | date:'MM/dd/yyyy'"></span></td>
 							<td><span ng-bind="appt.email"></span></td>
 							<td><button type="button" ng-click="ctrl.showComment(appt.id)"
 									class="btn btn-success custom-width">Show</button></td>
@@ -68,9 +68,9 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="date">Date/Time <span class="required">*</span></label>
+							<label class="col-md-2 control-lable" for="date">Date <span class="required">*</span></label>
 							<div class="col-md-7">
-								<input type="datetime-local" ng-model="ctrl.appointment.date" id="date" name="date" class="date form-control input-sm" placeholder="Enter your Date/Time" onchange="ctrl.enable()" required />
+								<input type="text" ng-model="ctrl.appointment.date" id="date" name="date" class="date form-control input-sm" placeholder="mm/dd/yyyy" onchange="ctrl.enable()" required />
 							</div>
 						</div>
 					</div>

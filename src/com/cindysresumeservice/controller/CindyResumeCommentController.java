@@ -30,7 +30,7 @@ public class CindyResumeCommentController {
 		Appointment appt = resumeManager.findById(id);
 
 		String strDate = "";
-		DateFormat dfDateTgt = new SimpleDateFormat("MM/dd/yyyy h:mm a");
+		DateFormat dfDateTgt = new SimpleDateFormat("MM/dd/yyyy");
 		strDate = dfDateTgt.format(appt.getDate());
 
 		ModelAndView mavView = new ModelAndView();
@@ -62,7 +62,7 @@ public class CindyResumeCommentController {
 		appt.setName(strName);
 
 		try {
-			dtDate = new SimpleDateFormat("MM/dd/yyyy h:mm a").parse(strDate);
+			dtDate = new SimpleDateFormat("MM/dd/yyyy").parse(strDate);
 			appt.setDate(dtDate);
 		} catch (ParseException e) {
 			e.printStackTrace();

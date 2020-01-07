@@ -20,13 +20,11 @@ public class ResumeManagerImpl implements ResumeManager {
 
 	@Override
 	public boolean saveAppt(Appointment appt) {
-		System.out.println("Resume manager save");
 		return resumeService.saveAppt(appt);
 	}
 
 	@Override
 	public boolean updateAppt(Appointment appt) {
-		System.out.println("Resume manager update");
 		return resumeService.updateAppt(appt);
 	}
 

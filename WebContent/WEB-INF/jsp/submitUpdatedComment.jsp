@@ -23,7 +23,7 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable">Date/Time:</label>
+						<label class="col-md-2 control-lable">Date:</label>
 						<div class="col-md-7">
 							<label class="col-md-7 control-lable">${date}</label>
 						</div>
