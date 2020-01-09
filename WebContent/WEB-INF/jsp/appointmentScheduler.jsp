@@ -77,6 +77,15 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="time">Time <span class="required">*</span></label>
+							<div class="col-md-7">
+								<input type="text" ng-model="ctrl.appointment.time" id="time" name="time" class="date form-control input-sm" placeholder="hh:mm a" onchange="ctrl.enable()" required />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable" for="email">Email <span class="required">*</span></label>
 							<div class="col-md-7">
 								<input type="email" ng-model="ctrl.appointment.email" id="email" name="email" class="email form-control input-sm" placeholder="Enter your Email" onchange="ctrl.enable()" required />

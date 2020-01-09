@@ -31,6 +31,14 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable">Time: </label>
+						<div class="col-md-7">
+							<label class="col-md-7 control-lable">${time}</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable">Email Address:</label>
 						<div class="col-md-7">
 							<label class="col-md-7 control-lable">${email}</label>
@@ -47,8 +55,10 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<input type="button" onclick="appointmentScheduler()" class="btn btn-success custom-width" value="Back" />
-						<input type="button" onclick="goHome()" class="btn btn-success custom-width" value="Home" />				
+						<input type="button" onclick="appointmentScheduler()"
+							class="btn btn-success custom-width" value="Back" /> <input
+							type="button" onclick="goHome()"
+							class="btn btn-success custom-width" value="Home" />
 					</div>
 				</div>
 			</div>

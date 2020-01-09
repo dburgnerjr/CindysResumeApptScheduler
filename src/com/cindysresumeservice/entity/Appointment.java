@@ -27,6 +27,9 @@ public class Appointment {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy", timezone = "CST")
 	private Date date;
 
+	@Column(name = "time", nullable = false)
+	private String time;
+
 	@Column(name = "email", nullable = false)
 	private String email;
 
@@ -36,10 +39,11 @@ public class Appointment {
 	public Appointment() {
 	}
 
-	public Appointment(Long id, String name, Date date, String email, String comments) {
+	public Appointment(Long id, String name, Date date, String time, String email, String comments) {
 		this.id = id;
 		this.name = name;
 		this.date = date;
+		this.time = time;
 		this.email = email;
 		this.comments = comments;
 	}
@@ -68,6 +72,14 @@ public class Appointment {
 		this.date = date;
 	}
 
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -86,7 +98,7 @@ public class Appointment {
 
 	@Override
 	public String toString() {
-		return "Appointment [id=" + id + ", name=" + name + ", date/time=" + date + ", email=" + email + ", comments="
-				+ comments + "]";
+		return "Appointment [id=" + id + ", name=" + name + ", date=" + date + ", time=" + time + ", email=" + email
+				+ ", comments=" + comments + "]";
 	}
 }

@@ -34,6 +34,15 @@
 					</div>
 					<div class="row">
 						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable">Time: </label>
+							<div class="col-md-7">
+								<input type="hidden" id="time" name="time" value="${time}" />
+								<label class="col-md-7 control-lable">${time}</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable">Email Address: </label>
 							<div class="col-md-7">
 								<input type="hidden" id="email" name="email" value="${email}" />
