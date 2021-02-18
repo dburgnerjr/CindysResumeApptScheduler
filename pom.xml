@@ -10,7 +10,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>4.3.14.RELEASE</springframework.version>
-		<jacksoncore.version>2.10.1</jacksoncore.version>
+		<jacksoncore.version>2.10.5.1</jacksoncore.version>
 		<javaxservlet.version>3.1.0</javaxservlet.version>
 		<jstl.version>1.2</jstl.version>
 		<taglibs.version>1.2.5</taglibs.version>
